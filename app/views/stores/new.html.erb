@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Mi Tienda</h1>
+  <%= simple_form_for @store do |f| %>
+    <div class='align-intems-start'>
+      <%= f.input :name, 
+        label: 'Nombre de la tienda' %>
+      <%= f.input :address,
+      label: 'Dirección de la tienda' %>
+      <%= f.input :phone,
+      label: 'Teléfono' %>
+    </div>
+    <div class="dropdown-divider"></div>
+    <%= f.button :submit, "Crear Tienda", class: "btn btn-success" %>
+  <% end %>
+</div>
