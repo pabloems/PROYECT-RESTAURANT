@@ -15,6 +15,18 @@ ActiveAdmin.register User do
   #   permitted
   # end
 
+    index do
+    selectable_column
+    column :id
+    column :email
+    column :name
+    column :admin
+    column :last_name
+    column :address
+    column :phone
+    actions
+  end
+
     # Cambios en el formulario
     form do |f|
     f.inputs "Identity" do
