@@ -20,4 +20,9 @@ class User < ApplicationRecord
     end
   end
 
+
+  def store_name
+    "#{id} - #{store_id}"
+  end
+
 end
