@@ -4,8 +4,7 @@ class Store < ApplicationRecord
   has_many :products, dependent: :destroy
 
   validates :name, presence: true,  length: { in: 2..30 }
-  # validates :address, presence: true
-  # validates :phone, presence: true, length: { minimum: 9 } #numericality: { only_integer: true }
-
+  validates :address, presence: true, length: { minimum: 9 }
+  validates :phone, presence: true, length: { minimum: 9 }
 
 end
