@@ -27,12 +27,6 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
-gem 'devise'
-
-gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
-gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -55,6 +49,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Proyect specific gem´s
 
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+# Add dashboard and crud of models
+  gem 'activeadmin', github: 'activeadmin/activeadmin'
+  gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+# Add login of user´s
+  gem 'devise'
+# permit add styles in form´s and style´s
+  gem 'autoprefixer-rails', '10.2.5'
+  gem 'font-awesome-sass'
+  gem 'simple_form'

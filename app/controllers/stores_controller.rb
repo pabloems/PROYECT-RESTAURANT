@@ -5,17 +5,17 @@ class StoresController < ApplicationController
 
   before_action :set_store, only: [:edit, :update]
 
-  # def new
-  #   @store = Store.new
-  # end
+  def new
+    @store = Store.new
+  end
 
-  # def create
-  #   @store = Store.new(store_params)
-  #   @store.users
-  #   if @store.save
-  #     redirect_to root_path
-  #   end
-  # end
+  def create
+    @store = Store.new(store_params)
+    @store.users
+    if @store.save
+      redirect_to root_path
+    end
+  end
 
   def edit
   end

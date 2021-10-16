@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :email, :store_id, :admin, :password, :password_confirmation
+   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
   #
   # or
   #
@@ -15,11 +15,25 @@ ActiveAdmin.register User do
   #   permitted
   # end
 
+    index do
+    selectable_column
+    column :id
+    column :admin
+    column :name
+    column :last_name
+    column :email
+    column :phone
+    actions
+  end
+
     # Cambios en el formulario
     form do |f|
     f.inputs "Identity" do
-
+      
+      f.input :name
+      f.input :last_name
       f.input :email
+      f.input :phone
       f.input :password
       f.input :password_confirmation
       f.input :store
@@ -31,6 +45,6 @@ ActiveAdmin.register User do
     f.actions
   end
 
-  permit_params  :email, :admin, :password_confirmation, :password, :store_id
+  # permit_params  :email, :admin, :password_confirmation, :password, :store_id
   
 end
