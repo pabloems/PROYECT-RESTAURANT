@@ -18,11 +18,10 @@ ActiveAdmin.register User do
     index do
     selectable_column
     column :id
-    column :email
-    column :name
     column :admin
+    column :name
     column :last_name
-    column :address
+    column :email
     column :phone
     actions
   end
