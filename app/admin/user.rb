@@ -1,19 +1,8 @@
 ActiveAdmin.register User do
+  config.comments = false
+  permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :store_id, :admin]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+    config.filters = true
 
     index do
     selectable_column
@@ -44,7 +33,4 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-
-  # permit_params  :email, :admin, :password_confirmation, :password, :store_id
-  
 end
