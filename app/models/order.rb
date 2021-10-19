@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :cart
   belongs_to :user
+  
+  before_create :set_status
 
   STATUSES = {
 
@@ -11,11 +13,10 @@ class Order < ApplicationRecord
   completed: 'Completada'
   }
 
-  before_create :set_status
-
   private
 
   def set_status
     self.status = STATUSES[:payed]
   end
+
 end
