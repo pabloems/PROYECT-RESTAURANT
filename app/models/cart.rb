@@ -4,6 +4,8 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_items
   has_many :orders, dependent: :destroy
 
+  accepts_nested_attributes_for :cart_items, allow_destroy: true
+
   before_save :set_total_price
 
   def total_price

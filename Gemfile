@@ -54,7 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Add dashboard and crud of models
   gem 'activeadmin', github: 'activeadmin/activeadmin'
   gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
+  gem 'activeadmin_addons'
 # Add login of user´s
   gem 'devise'
 # permit add styles in form´s and style´s

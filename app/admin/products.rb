@@ -17,7 +17,7 @@ ActiveAdmin.register Product do
   end
 
      form do |f|
-  f.inputs "Identity" do
+  f.inputs "Products" do
 
     f.input :name
     f.input :description
