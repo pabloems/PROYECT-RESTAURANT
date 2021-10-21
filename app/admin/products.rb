@@ -10,7 +10,7 @@ ActiveAdmin.register Product do
   index do
   selectable_column
   column :name
-  column :price
+  number_column :price, as: :currency, unit: "$", separator: "."
   column :active
   # column :store
   column :categories
