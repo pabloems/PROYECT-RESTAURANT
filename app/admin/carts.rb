@@ -1,20 +1,16 @@
 ActiveAdmin.register Cart do
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+controller do
+    # This code is evaluated within the controller class
+
+    def show
+      @cart_items = current_cart.cart_items
+      @order = Order.new
+    end
+  end
+
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity]
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:total_price, :active, :user_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
 
        form do |f|
   f.inputs "Cart" do
