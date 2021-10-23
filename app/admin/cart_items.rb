@@ -15,4 +15,17 @@ ActiveAdmin.register CartItem do
   #   permitted
   # end
   
+  controller do
+      before_save :set_total
+
+    def total
+      return item_price * quantity
+    end
+
+    private
+
+    def set_total
+      self[:total] = total * quantity
+    end
+  end
 end

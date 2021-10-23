@@ -10,11 +10,11 @@ class Cart < ApplicationRecord
 
   def total_price
     cart_items.collect do |cart_item|
-      if cart_items.valid?
+      # if cart_items.valid?
         cart_item.item_price * cart_item.quantity
-      else
-        0
-      end
+      # else
+      #   0
+      # end
     end.sum
   end
 
