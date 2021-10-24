@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
 
 
+
   permit_params do
     permitted = [:name, :description, :price, :discount_price, :active, :store_id, category_ids:[]]
     permitted << :other if params[:action] == 'create' && current_user.admin?
@@ -9,15 +10,15 @@ ActiveAdmin.register Product do
 
   index do
   selectable_column
-  column :name
-  column :price
-  column :active
-  # column :store
-  column :categories
+    column :name
+    number_column :price, as: :currency, unit: "$", separator: "."
+    column :active
+    # column :store
+    column :categories
   end
 
      form do |f|
-  f.inputs "Identity" do
+  f.inputs "Products" do
 
     f.input :name
     f.input :description

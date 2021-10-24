@@ -4,22 +4,20 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_items
   has_many :orders, dependent: :destroy
 
-  before_save :set_total_price
+  accepts_nested_attributes_for :cart_items, allow_destroy: true
 
-  def total_price
-    cart_items.collect do |cart_item|
-      if cart_items.valid?
-        cart_item.item_price * cart_item.quantity
-      else
-        0
-      end
-    end.sum
-  end
+  # before_save :set_total_price
 
-  private
+  # def total_price
+  #   cart_items.collect do |cart_item|
+  #   cart_item.item_price * cart_item.quantity
+  #   end
+  # end
 
-  def set_total_price
-    self[:total_price] = total_price
-  end
+  # private
+
+  # def set_total_price
+  #   self[:total_price] = total_price
+  # end
 
 end
