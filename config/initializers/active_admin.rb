@@ -8,6 +8,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+
+  config.display_name_methods = [:display_name]
   config.site_title = "Proyect Restaurant"
 
   # Set the link url for the title. For example, to take

@@ -19,7 +19,9 @@ controller do
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity]
 
-       form do |f|
+
+
+  form do |f|
   f.inputs "Cart" do
 
     f.input :user

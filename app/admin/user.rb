@@ -2,9 +2,9 @@ ActiveAdmin.register User do
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 
-    config.filters = true
+    config.filters = false
 
-    index do
+  index do
     selectable_column
     column :id
     column :admin
@@ -16,9 +16,9 @@ ActiveAdmin.register User do
   end
 
     # Cambios en el formulario
-    form do |f|
+  form do |f|
     f.inputs "Identity" do
-      
+
       f.input :name
       f.input :last_name
       f.input :email
@@ -29,7 +29,6 @@ ActiveAdmin.register User do
     end
     f.inputs "Admin" do
       f.input :admin
-
     end
     f.actions
   end

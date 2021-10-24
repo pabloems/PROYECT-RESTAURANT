@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :store_id, :store])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :store_id, :store, :email, :last_name, :phone, :admin])
   end
 
   def create
