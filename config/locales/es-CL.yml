@@ -1,12 +1,4 @@
-en:
-  simple_form:
-    "si": 'Si'
-    "no": 'No'
-    required:
-      text: 'requerido'
-      mark: ''
-    error_notification:
-      default_message: "Creo que tenemos un problema ahí: "
+es:
   activerecord:
     models:
       comment:
@@ -23,7 +15,7 @@ en:
         author_type: "Tipo de autor"
         created_at: "Fecha de creación"
         updated_at: "Fecha de actualización"
-        user: "Usuario"
+        display_name: "display_name"
   active_admin:
     dashboard: "Inicio"
     dashboard_welcome:
@@ -122,6 +114,7 @@ en:
       errors:
         empty_text: "El comentario no fue guardado, el texto estaba vacío."
     devise:
+
       username:
         title: "Nombre de usuario"
       email:

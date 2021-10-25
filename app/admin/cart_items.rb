@@ -4,11 +4,11 @@ ActiveAdmin.register CartItem do
 
   index do
     selectable_column
-    column :cart_id
-    column :quantity
-    column :item_price
-    column :total
     column :product_id
+    column :quantity
+    number_column :item_price, as: :currency, unit: "$", separator: "."
+    number_column :total, as: :currency, unit: "$", separator: "."
+    column :cart_id
   end
 
   controller do
