@@ -114,7 +114,6 @@ es:
       errors:
         empty_text: "El comentario no fue guardado, el texto estaba vacío."
     devise:
-
       username:
         title: "Nombre de usuario"
       email:
