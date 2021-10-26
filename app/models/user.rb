@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :store, inverse_of: :users, required: false
 
-   before_validation :create_store
+  before_validation :create_store
  # Aquí creamos una cuenta y asignamos account_id al usuario
   def create_store
     storeEncontrados = Store.first(1)
@@ -20,8 +20,6 @@ class User < ApplicationRecord
     end
   end
 
-  def display_name
-    name
-  end
+
 
 end

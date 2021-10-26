@@ -20,4 +20,5 @@ class Cart < ApplicationRecord
   #   self[:total_price] = total_price
   # end
 
+
 end

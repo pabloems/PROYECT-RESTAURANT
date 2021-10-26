@@ -1,8 +1,11 @@
 ActiveAdmin.register User do
+
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 
-    config.filters = false
+  filter :admin
+  filter :name
+
 
   index do
     selectable_column
