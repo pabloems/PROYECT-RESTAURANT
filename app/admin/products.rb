@@ -32,8 +32,8 @@ ActiveAdmin.register Product do
     f.input :description
     f.input :price
     f.input :discount_price
-    f.input :active
     f.input :store
+    f.input :active
     f.input :categories, :as => :check_boxes
   end
   f.actions

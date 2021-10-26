@@ -35,6 +35,9 @@ ActiveAdmin.setup do |config|
   # This will create resources in the HelloWorld module and
   # will namespace routes to /hello_world/*
   #
+  meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
+  config.meta_tags = meta_tags_options
+  config.meta_tags_for_logged_out_pages = meta_tags_options
   # To set no namespace by default, use:
   #   config.default_namespace = false
   #
