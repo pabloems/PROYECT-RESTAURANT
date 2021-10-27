@@ -34,8 +34,14 @@ ActiveAdmin.setup do |config|
   #
   # This will create resources in the HelloWorld module and
   # will namespace routes to /hello_world/*
-  #
-  # To set no namespace by default, use:
+
+
+
+  # Se añadió para mejorar tema y hacerlo responsive
+  meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
+  config.meta_tags = meta_tags_options
+  config.meta_tags_for_logged_out_pages = meta_tags_options
+
   #   config.default_namespace = false
   #
   # Default:
@@ -235,13 +241,13 @@ ActiveAdmin.setup do |config|
   # You can add a navigation menu to be used in your application, or configure a provided menu
   #
   # To change the default utility navigation to show a link to your website & a logout btn
-  #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
+
+  # Permite crear menú de administración
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add id: :some_menu_id, label: "Administración"
+    end
+  end
   #
   # If you wanted to add a static menu item to the default menu provided:
   #

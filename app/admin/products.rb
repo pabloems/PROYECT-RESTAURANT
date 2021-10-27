@@ -1,5 +1,11 @@
 ActiveAdmin.register Product do
 
+  # Permite crear la páginación
+  config.per_page = 1
+
+  # Permite contenerlo en el menú adminstración
+  menu parent: :some_menu_id
+
   permit_params do
     permitted = [:name, :description, :price, :discount_price, :active, :store_id, category_ids:[]]
     permitted << :other if params[:action] == 'create' && current_user.admin?
@@ -18,6 +24,8 @@ ActiveAdmin.register Product do
     number_column :price, as: :currency, unit: "$", separator: "."
     column :categories
     column :active
+    
+    actions
   end
 
      form do |f|
@@ -27,10 +35,9 @@ ActiveAdmin.register Product do
     f.input :description
     f.input :price
     f.input :discount_price
-    f.input :active
     f.input :store
+    f.input :active
     f.input :categories, :as => :check_boxes
-    # f.input :photos, as: :file
   end
   f.actions
   end

@@ -1,5 +1,8 @@
 ActiveAdmin.register CartItem do
 
+  # Permite contenerlo en el menú adminstración
+  menu parent: :some_menu_id
+
   permit_params :quantity, :item_price, :total, :product_id, :cart_id
 
   index do
