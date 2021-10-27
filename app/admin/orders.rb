@@ -19,7 +19,6 @@ ActiveAdmin.register Order do
 
     f.input :user, :as => :select, :collection => User.all
     f.input :cart, :as => :select, :collection =>Cart.all
-    f.input :status
     f.input :paid
   end
   f.actions

@@ -3,6 +3,9 @@ ActiveAdmin.register Product do
   # Permite crear la páginación
   config.per_page = 1
 
+  # Permite contenerlo en el menú adminstración
+  menu parent: :some_menu_id
+
   permit_params do
     permitted = [:name, :description, :price, :discount_price, :active, :store_id, category_ids:[]]
     permitted << :other if params[:action] == 'create' && current_user.admin?
