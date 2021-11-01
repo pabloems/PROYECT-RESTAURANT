@@ -15,8 +15,9 @@ ActiveAdmin.register User do
     selectable_column
     column :id
     column :admin
-    column :name
-    column :last_name
+    column 'Usuario' do |display|
+      display.name + ' ' + display.last_name
+    end
     column :email
     column :phone
     actions

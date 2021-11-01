@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :store, inverse_of: :users, required: false
 
+
   before_validation :create_store
  # Aquí creamos una cuenta y asignamos account_id al usuario
   def create_store
