@@ -1,4 +1,4 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Category, as: "Promociones" do
 
   # Permite contenerlo en el menú adminstración
   menu parent: :some_menu_id

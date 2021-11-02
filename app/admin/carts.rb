@@ -1,12 +1,26 @@
-ActiveAdmin.register Cart do
+ActiveAdmin.register Cart, as: "Carritos" do
 
   permit_params :total_price, :active, :user_id,
-  cart_items_attributes: [:product_id, :item_price, :total, :quantity]
+  cart_items_attributes: [:product_id, :item_price, :total, :quantity],
+  users_attributes: [ :name, :last_name ]
 
   filter :user
   filter :active
   filter :total_price
   filter :created_at
+
+
+  index do
+    selectable_column
+    column :id
+    column 'Usuario' do |display|
+      display.user.name + ' ' + display.user.last_name
+    end
+    number_column "Precio total" ,:total_price, as: :currency, unit: "$", separator: "."
+    column "Fecha de Creación",:created_at
+
+    actions
+  end
 
 
   form do |f|

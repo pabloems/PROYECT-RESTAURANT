@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :carts, through: :cart_items
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
-
+  accepts_nested_attributes_for :categories, allow_destroy: true
 
   validates :name, presence: true, length: {minimum: 3, maximum:100}
   validates :description, presence: true, length: {minimum:5, maximum: 100}
