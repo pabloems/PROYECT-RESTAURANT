@@ -10,7 +10,7 @@ ActiveAdmin.setup do |config|
   #
 
   config.display_name_methods = [:display_name]
-  config.site_title = "Proyect Restaurant"
+  config.site_title = "Sistema de Gestión "
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.

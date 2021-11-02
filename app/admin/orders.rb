@@ -1,10 +1,10 @@
-ActiveAdmin.register Order do
+ActiveAdmin.register Order, as: "Ordenes" do
 
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
 
 
-  filter :user_id, as: :search_select_filter
+  filter :user
   filter :paid
   filter :created_at
 
@@ -20,7 +20,6 @@ ActiveAdmin.register Order do
 
   form do |f|
   f.inputs "Orders" do
-
     f.input :user, :as => :select
     f.input :cart, :as => :select
     f.input :paid

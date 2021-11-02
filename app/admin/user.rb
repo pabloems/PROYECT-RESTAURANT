@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User, as: "Usuarios" do
 
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
