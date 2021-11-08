@@ -20,11 +20,13 @@ ActiveAdmin.register Product, as: "Productos" do
     column :name
     column :description
     number_column :price , as: :currency, unit: "$", separator: "."
-
     column 'Categoría' do |display|
       display.categories.name
     end
     column :active
+    column "Image" do |product|
+      image_tag product.image, class: 'my_image_size', size:'100x75'
+    end
     actions
   end
 
