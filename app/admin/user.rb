@@ -1,4 +1,4 @@
-ActiveAdmin.register User, as: "Usuarios" do
+ActiveAdmin.register User, as: "Colaboradores" do
 
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
@@ -15,7 +15,7 @@ ActiveAdmin.register User, as: "Usuarios" do
     selectable_column
     column :id
     column :admin
-    column 'Usuario' do |display|
+    column 'Colaborador' do |display|
       display.name + ' ' + display.last_name
     end
     column :email
