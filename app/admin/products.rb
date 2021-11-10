@@ -1,7 +1,7 @@
-ActiveAdmin.register Product, as: "Productos" do
+ActiveAdmin.register Product, as: "Platos" do
 
   # Permite crear la páginación
-  config.per_page = 2
+  config.per_page = 10
 
   # Permite contenerlo en el menú adminstración
   menu parent: :some_menu_id
@@ -13,19 +13,24 @@ ActiveAdmin.register Product, as: "Productos" do
   filter :name
   filter :categories
   filter :price, as: :numeric_range_filter
+  filter :active
 
 
   index do
-  selectable_column
+    selectable_column
     column :name
     column :description
     number_column :price , as: :currency, unit: "$", separator: "."
     column 'Categoría' do |display|
       display.categories.name
     end
-    column :active
+    toggle_bool_column :active
     column "Image" do |product|
-      image_tag product.image, class: 'my_image_size', size:'100x75'
+      if product.image.attached?
+        image_tag product.image, class: 'image_product', size:'75x75'
+      else
+        image_tag 'logo.png', class: 'image_product', size:'75x50'
+      end
     end
     actions
   end
@@ -39,7 +44,7 @@ ActiveAdmin.register Product, as: "Productos" do
     f.input :discount_price
     f.input :store
     f.input :active
-    f.input :categories, :as => :check_boxes
+    f.input :categories
     f.inputs do
       f.input :image, as: :file
     end

@@ -34,10 +34,9 @@ ActiveAdmin.register User, as: "Colaboradores" do
       f.input :password
       f.input :password_confirmation
       f.input :store
-    end
-    f.inputs "Admin" do
       f.input :admin
     end
+
     f.actions
   end
 end
