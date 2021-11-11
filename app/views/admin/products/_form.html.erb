@@ -7,11 +7,12 @@
     <%= f.input :discount_price %>
     <%= f.input :store %>
     <%= f.input :active %>
+    <%= f.input :image, as: :file %>
     <%= f.input :categories, as: :check_boxes %>
+    <%# <% f.has_many :product_categories, allow_destroy: true do |n_f| %>
+      <%# <%= n_f.input :category %> 
+    <%# <% end %> 
 
-    <%= f.inputs do %>
-      <%= f.input :image, as: :file %>
-    <%end %>
   <% end %>
   <%= f.actions %>
   <% end %>
