@@ -1,0 +1,17 @@
+  <%= semantic_form_for [:admin, @product], builder: ActiveAdmin::FormBuilder do |f| %>
+  <%= f.inputs "Products" do %>
+
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :discount_price %>
+    <%= f.input :store %>
+    <%= f.input :active %>
+    <%= f.input :categories, as: :check_boxes %>
+
+    <%= f.inputs do %>
+      <%= f.input :image, as: :file %>
+    <%end %>
+  <% end %>
+  <%= f.actions %>
+  <% end %>

@@ -4,6 +4,7 @@ ActiveAdmin.register Cart, as: "Carritos" do
   cart_items_attributes: [:product_id, :item_price, :total, :quantity],
   users_attributes: [ :name, :last_name ]
 
+# Filtros empleados
   filter :user
   filter :active
   filter :total_price

@@ -1,5 +1,5 @@
-ActiveAdmin.register Product, as: "Platos" do
-
+ActiveAdmin.register Product do
+# , as: "Platos"
   # Permite crear la páginación
   config.per_page = 10
 
@@ -35,21 +35,36 @@ ActiveAdmin.register Product, as: "Platos" do
     actions
   end
 
-     form do |f|
-  f.inputs "Products" do
 
-    f.input :name
-    f.input :description
-    f.input :price
-    f.input :discount_price
-    f.input :store
-    f.input :active
-    f.input :categories
-    f.inputs do
-      f.input :image, as: :file
+  form partial: 'form', locals: {resource: Product.new}
+
+  controller do
+
+    before_action :find_store, only: [:new, :create]
+
+    def new
+      @product = Product.new
     end
-  end
-  f.actions
+
+    def create
+      @product = Product.new(product_params)
+      @product.store = @store
+      @product.category_ids = params[:product][:category_ids]
+      if @product.save
+        redirect_to admin_products_path, notice: "Producto creado con éxito"
+      end
+    end
+
+    private
+
+    def product_params
+      params.require(:product).permit(:name, :description, :price, :discount_price, :active, :store_id, :image)
+    end
+
+    def find_store
+      @store = Store.first(params[:store_id])
+    end
+
   end
 
 end
