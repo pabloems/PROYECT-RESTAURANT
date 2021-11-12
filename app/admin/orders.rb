@@ -10,21 +10,31 @@ ActiveAdmin.register Order, as: "Ordenes" do
 
   index do
     selectable_column
-    column 'Usuario' do |display|
-       display.user.name + ' ' + display.user.last_name
+    column 'Usuario' do |u|
+       u.user.name + ' ' + u.user.last_name
     end
     column :cart_id
-    bool_column :paid
+    column :paid
     actions
   end
 
   form do |f|
   f.inputs "Orders" do
     f.input :user, :as => :select
-    f.input :cart, :as => :select
+    f.input :cart_id
     f.input :paid
   end
   f.actions
   end
 
+  show do
+    attributes_table do
+      row "Usuario" do |u|
+        u.user.name + " " + u.user.last_name
+      end
+      row :status
+      row :cart_id
+      row :created_at
+    end
+  end
 end

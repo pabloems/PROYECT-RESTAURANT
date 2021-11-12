@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-# , as: "Platos"
+
   # Permite crear la páginación
   config.per_page = 10
 
@@ -67,6 +67,18 @@ ActiveAdmin.register Product do
     end
     actions
   end
+
+    # Show de product
+    show do
+      attributes_table do
+        row :name
+        row :description
+        row :price
+        row :active
+        row :created_at
+      end
+    end
+
 
   # Render de New Product
   form partial: 'form', locals: {resource: Product.new}

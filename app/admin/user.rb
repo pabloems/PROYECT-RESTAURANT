@@ -14,12 +14,12 @@ ActiveAdmin.register User, as: "Colaboradores" do
   index do
     selectable_column
     column :id
-    column :admin
     column 'Colaborador' do |display|
       display.name + ' ' + display.last_name
     end
     column :email
     column :phone
+    column :admin
     actions
   end
 
@@ -38,5 +38,18 @@ ActiveAdmin.register User, as: "Colaboradores" do
     end
 
     f.actions
+  end
+  
+
+  show do
+    attributes_table do
+      row 'Usuario' do |u|
+        u.name + " " + u.last_name
+      end
+      row :email
+      row :phone
+      row :admin
+      row :created_at
+    end
   end
 end

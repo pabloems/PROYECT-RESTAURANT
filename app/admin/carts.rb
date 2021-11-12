@@ -41,5 +41,24 @@ ActiveAdmin.register Cart, as: "Carritos" do
   end
   f.actions
   end
+
+  show do
+    attributes_table do
+      row "Usuario" do |u|
+        u.user.name + " " + u.user.last_name
+      end
+      row :total_price
+      row :active
+      row :created_at
+    end
+    
+    panel "Detalles de orden" do
+      table_for @carts do
+        column :product
+        column :item_price
+      end
+    end
+
+  end
   
 end
