@@ -1,5 +1,5 @@
-ActiveAdmin.register Category, as: "Categorias" do
-
+ActiveAdmin.register Category do
+# , as: "Categorias"
   # Permite contenerlo en el menú adminstración
   menu parent: :some_menu_id
 
@@ -16,6 +16,22 @@ ActiveAdmin.register Category, as: "Categorias" do
     selectable_column
     column :name
     column :created_at
+    actions
+  end
+
+  controller do
+
+    before_action :set_category, only: [:show]
+
+    def show
+      @products = @category.products
+    end
+
+    private
+
+    def set_category
+      @category = Category.find(params[:id])
+    end
   end
 
 end
