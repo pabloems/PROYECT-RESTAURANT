@@ -16,7 +16,7 @@ ActiveAdmin.register Category do
     selectable_column
     column :name
     column :created_at
-    actions
+    actions 
   end
 
   controller do
