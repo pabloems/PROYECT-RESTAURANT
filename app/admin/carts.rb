@@ -60,5 +60,14 @@ ActiveAdmin.register Cart, as: "Carritos" do
     end
 
   end
+
+  controller do
+
+    def show
+      @cart_items = current_cart.total_price
+      @order = Order.new
+    end
+
+  end
   
 end
