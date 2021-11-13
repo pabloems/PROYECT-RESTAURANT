@@ -9,8 +9,6 @@ ActiveAdmin.register Product do
 
   permit_params :name, :description, :price, :discount_price, :active, :store_id, :image, category_ids:[],
   categories_attributes: [:name]
-  # permit_params :name, :description, :price, :discount_price, :active, :store_id, :image,
-  # product_categories: [:id, :product_id, :category_id, :_destroy, :name]
 
 
   filter :name
