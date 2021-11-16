@@ -1,5 +1,5 @@
-ActiveAdmin.register User, as: "Colaboradores" do
-
+ActiveAdmin.register User do
+# , as: "Colaboradores"
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 

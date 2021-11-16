@@ -2,14 +2,30 @@ class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
 
-  # accepts_nested_attributes_for :products, allow_destroy: true
+  before_save :set_unit_price
+  before_save :set_total
+
+  def set_unit_price
+    # if there is a record
+    if persisted?
+      self[:item_price]
+    else
+      product.price
+    end
+  end
+
   # def total
   #   return item_price * quantity
   # end
 
-  # private
+  private
 
-  # def set_total
-  #   self[:total] = total * quantity
-  # end
+  def set_item_price
+    self[:item_price] = item_price
+  end
+
+  def set_total
+    self[:total] = total * quantity
+  end
+
 end

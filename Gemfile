@@ -57,7 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Permite añadir filtros personalizados
   gem 'activeadmin_addons'
 # añadir tema para active-admin
-gem 'arctic_admin'
+  gem 'arctic_admin'
 
 # Add login of user´s
   gem 'devise'
@@ -68,3 +68,6 @@ gem 'arctic_admin'
 
 
   gem 'faker'
+
+
+  # gem 'jquery-rails'

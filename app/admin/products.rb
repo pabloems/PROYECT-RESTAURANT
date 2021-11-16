@@ -51,7 +51,7 @@ ActiveAdmin.register Product do
     selectable_column
     column :name
     column :description
-    number_column :price , as: :currency, unit: "$", separator: "."
+    number_column :price , as: :currency,precision: 0
     column 'Categoría' do |product|
       product.categories.map{ |bg| bg.name}
     end
@@ -71,7 +71,7 @@ ActiveAdmin.register Product do
       attributes_table do
         row :name
         row :description
-        row :price
+        number_row :price, precision: 0, as: :currency
         row :active
         row :created_at
       end

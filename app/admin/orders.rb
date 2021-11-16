@@ -1,5 +1,5 @@
-ActiveAdmin.register Order, as: "Ordenes" do
-
+ActiveAdmin.register Order do
+# , as: "Ordenes"
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
 
