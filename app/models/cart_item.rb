@@ -2,10 +2,10 @@ class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
 
-  before_save :set_unit_price
+  before_save :set_item_price
   before_save :set_total
 
-  def set_unit_price
+  def item_price
     # if there is a record
     if persisted?
       self[:item_price]
@@ -14,9 +14,9 @@ class CartItem < ApplicationRecord
     end
   end
 
-  # def total
-  #   return item_price * quantity
-  # end
+  def total
+    return item_price * quantity
+  end
 
   private
 

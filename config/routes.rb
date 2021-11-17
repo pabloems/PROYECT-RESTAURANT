@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :products, only: %i[index show edit update destroy]
   resources :carts, only: %i[create edit update destroy]
+    get 'cart', to: 'cart#show'
   resources :cart_items, only: %i[create destroy update]
   resources :product_categories, only: %i[create destroy]
   resources :orders, only: %i[show index create update]

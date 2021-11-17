@@ -7,6 +7,8 @@ class Cart < ApplicationRecord
   accepts_nested_attributes_for :cart_items, allow_destroy: false
   accepts_nested_attributes_for :user, allow_destroy: false
 
+  before_save :set_total_price
+
   def total_price
     cart_items.collect {|cart_item| cart_item.valid? ? cart_item.item_price * cart_item.quantity : 0}.sum
   end
