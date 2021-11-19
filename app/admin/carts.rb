@@ -3,6 +3,7 @@ ActiveAdmin.register Cart do
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity],
   users_attributes: [ :name, :last_name ]
+  actions :index, :show
 
 # Filtros empleados
   filter :user
