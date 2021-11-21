@@ -1,15 +1,21 @@
+<div class="container">
 
-<% @cart_items.each do |item| %>
-<h3><%= item.product.name %></h3>
-<h3><%= item.product.price %></h3>
+  <% @cart_items.each do |item| %>
+  <h3><%= item.product.name %></h3>
+  <h3><%= item.product.price %></h3>
 
-<%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
-    <%= f.hidden_field :product_id, value: item.product_id %>
-    <%= f.number_field :quantity, value: item.quantity.to_i %>
-    <%= f.submit "Actualizar Carro" %>
-    <%= link_to "Eliminar elemento", item, method: :delete, remote: :true %>
-      <h3> Subtotal: <%= item.total %></h3>
+  <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
+      <%= f.hidden_field :product_id, value: item.product_id %>
+      <%= f.number_field :quantity, value: item.quantity.to_i %>
+      <%= f.submit "Actualizar Carro" %>
+      <%= link_to "Eliminar elemento", item, method: :delete, remote: :true %>
+        <h3> Subtotal: <%= item.total %></h3>
+    <% end %>
   <% end %>
 
-<% end %>
-  <h3> Total: <%= current_cart.total_price %></h3>
+    <div class="method-pay">
+      <h3> Total: <%= current_cart.total_price %></h3>
+      <%= link_to "Pagar con tarjeta crédito", checkout_create_path, method: :post ,params: {id: current_cart.total_price}, remote: true, class: "btn btn-primary" %>
+    </div>
+  <%= link_to  "Atrás", root_path %>
+</div>

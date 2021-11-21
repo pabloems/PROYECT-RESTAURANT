@@ -16,14 +16,6 @@ class OrdersController < ApplicationController
     @order.cart = current_cart
   end
 
-  def new
-  end
-
-  def edit
-  end
-
-  def update
-  end
 
   private
 
