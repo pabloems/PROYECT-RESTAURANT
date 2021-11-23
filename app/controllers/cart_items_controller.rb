@@ -5,6 +5,7 @@ class CartItemsController < ApplicationController
     def create
       # cart_item
       @cart_items = @cart.cart_items.new(cart_items_params)
+      join = @cart.cart_items.where(product_id: @cart_items[:product_id])
       @cart.save
       session[:cart_id] = @cart.id
       respond_to do |format|

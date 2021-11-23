@@ -2,12 +2,12 @@ class CheckoutController < ApplicationController
 
   def create
 
-    cart = Cart.find_by_id(session[:cart_id])
+    current_cart = Cart.find_by_id(session[:cart_id])
     @session = Stripe::Checkout::Session.create({
     payment_method_types: ['card'],
     line_items: [{
-        name: cart.id ,
-        amount: cart.total_price,
+        name: current_cart.id ,
+        amount: current_cart.total_price,
         currency: 'clp',
         quantity: 1
       }],
