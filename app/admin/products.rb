@@ -16,7 +16,7 @@ ActiveAdmin.register Product do
   filter :price, as: :numeric_range_filter
   filter :active
 
-  # Controllador Product
+  # Controllador Product ActiveAdmin
       controller do
     
         before_action :find_store, only: [:new, :create]

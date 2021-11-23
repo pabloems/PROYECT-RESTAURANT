@@ -1,0 +1,8 @@
+
+var stripe = Stripe("<%= Rails.application.credentials[:stripe][:public] %>");
+var checkoutButton = document.getElementById('checkout-button');
+
+  stripe.redirectToCheckout({
+    sessionId: '<%= @order.id %>'
+  }).then(function (result) {
+  });

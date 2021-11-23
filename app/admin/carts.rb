@@ -3,6 +3,7 @@ ActiveAdmin.register Cart do
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity],
   users_attributes: [ :name, :last_name ]
+  actions :index, :show
 
 # Filtros empleados
   filter :user
@@ -46,27 +47,10 @@ ActiveAdmin.register Cart do
         u.user.name + " " + u.user.last_name
       end
       number_row :total_price, as: :currency, precision: 0
-      # [:currency, :human, :human_size, :percentage, :phone, :delimiter, :precision]
       row :active
       row :created_at
     end
-    
-    # panel "Detalles de orden" do
-    #   table_for @carts do
-    #     column :product
-    #     column :item_price
-    #   end
-    # end
 
   end
 
-  controller do
-
-    def show
-      @cart_items = current_cart.total_price
-      @order = Order.new
-    end
-
-  end
-  
 end

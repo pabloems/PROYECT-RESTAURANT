@@ -1,27 +1,11 @@
-ActiveAdmin.register CartItem do
+class CartItemsController < ApplicationController
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :quantity, :item_price, :total, :product_id, :cart_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:quantity, :item_price, :total, :product_id, :cart_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
-  controller do
-
-    before_action :set_cart
+   before_action :set_cart
 
     def create
       # cart_item
       @cart_items = @cart.cart_items.new(cart_items_params)
+      join = @cart.cart_items.where(product_id: @cart_items[:product_id])
       @cart.save
       session[:cart_id] = @cart.id
       respond_to do |format|
@@ -32,7 +16,7 @@ ActiveAdmin.register CartItem do
 
     def update
       @cart_item = @cart.cart_items.find(params[:id])
-      @cart_item.update_attributes(cart_items_params)
+      @cart_item.update(cart_items_params)
       @cart_items = current_cart.cart_items
     end
 
@@ -52,5 +36,4 @@ ActiveAdmin.register CartItem do
       @cart = current_cart
     end
 
-  end
 end
