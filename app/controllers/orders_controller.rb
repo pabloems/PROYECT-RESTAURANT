@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
+    @order  = Order.new
     @order.user = current_user
     @order.cart = current_cart
 
