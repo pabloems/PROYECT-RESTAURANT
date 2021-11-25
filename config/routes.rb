@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :orders, only: %i[show index create update]
   resources :categories, only: :show
 
-  post "checkout/create", to: "checkout#create"
+  post "order/create", to: "checkout#create"
 
 
 end

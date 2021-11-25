@@ -15,7 +15,7 @@
 
     <div class="method-pay">
       <h3> Total: <%= current_cart.total_price %></h3>
-      <%= link_to "Pagar con tarjeta crédito", checkout_create_path, method: :post ,params: {id: current_cart.total_price}, remote: true, class: "btn btn-primary" %>
+      <%= link_to "Pagar con tarjeta crédito", order_create_path, method: :post ,params: {id: current_cart.total_price}, remote: true, class: "btn btn-primary" %>
     </div>
   <%= link_to  "Atrás", root_path %>
 </div>

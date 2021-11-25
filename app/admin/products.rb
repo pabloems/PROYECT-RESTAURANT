@@ -77,7 +77,6 @@ ActiveAdmin.register Product do
       end
     end
 
-
   # Render de New Product
   form partial: 'form', locals: {resource: Product.new}
 
