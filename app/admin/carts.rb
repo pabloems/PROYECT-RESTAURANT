@@ -15,8 +15,8 @@ ActiveAdmin.register Cart do
   index do
     selectable_column
     column :id
-    column 'Usuario' do |display|
-      display.user.name + ' ' + display.user.last_name
+    column 'Colaborador' do |u|
+      u.user.name + ' ' + u.user.last_name
     end
     number_column "Precio total" ,:total_price, as: :currency, precision: 0
     column "Fecha de Creación",:created_at
@@ -43,7 +43,7 @@ ActiveAdmin.register Cart do
 
   show do
     attributes_table do
-      row "Usuario" do |u|
+      row "Colaborador" do |u|
         u.user.name + " " + u.user.last_name
       end
       number_row :total_price, as: :currency, precision: 0
