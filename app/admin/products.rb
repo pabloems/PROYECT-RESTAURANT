@@ -7,7 +7,7 @@ ActiveAdmin.register Product do
   menu parent: :some_menu_id
 
 
-  permit_params :name, :description, :price, :discount_price, :active, :store_id, :image, category_ids:[],
+  permit_params :name, :description, :price, :active, :store_id, :image, category_ids:[],
   categories_attributes: [:name]
 
 
@@ -37,7 +37,7 @@ ActiveAdmin.register Product do
         private
     
         def product_params
-          params.require(:product).permit(:name, :description, :price, :discount_price, :active, :store_id, :image)
+          params.require(:product).permit(:name, :description, :price, :active, :store_id, :image)
         end
     
         def find_store

@@ -5,9 +5,6 @@ ActiveAdmin.register Order do
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
 
-
-
-
   filter :user
   filter :paid
   filter :created_at

@@ -2,8 +2,6 @@ require_relative '../models/cart'
 
 class OrdersController < ApplicationController
 
-
-
   before_action :set_order, only: [:show]
 
   def index
@@ -14,15 +12,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order  = Order.new
+
+    @order = Order.new
     @order.user = current_user
     @order.cart = current_cart
 
     if @order.save
-      payment_information = (@order.cart.total_price)
-      if payment_information.payment_id
+      join = @order.cart.total_price
+      if join.payment_id
         session[:cart_id] = nil
-        @order.payment_id = payment_information.payment_id
+        @order.payment_id = join.payment_id
         @order.paid = true
         @order.save
       else
@@ -40,6 +39,5 @@ class OrdersController < ApplicationController
   def set_order
     @order = Order.find(params[:id])
   end
-
 
 end

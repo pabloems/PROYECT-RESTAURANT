@@ -1,22 +1,25 @@
-<div class="container">
+<div class="container text-center">
+  <h2 class="mt-3">Carro</h2>
 
-  <% @cart_items.each do |item| %>
-  <h3><%= item.product.name %></h3>
-  <h3><%= item.product.price %></h3>
+  <div class="cart-items d-grid">
+    <% @cart_items.each do |item| %>
+    <h3><%= item.product.name %></h3>
+    <h3><%= item.product.price %></h3>
 
-  <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
-      <%= f.hidden_field :product_id, value: item.product_id %>
-      <%= f.number_field :quantity, value: item.quantity.to_i %>
-      <%= f.submit "Actualizar Carro" %>
-      <%= link_to "Eliminar elemento", item, method: :delete, remote: :true %>
-        <h3> Subtotal: <%= item.total %></h3>
+    <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
+        <%= f.hidden_field :product_id, value: item.product_id %>
+        <%= f.number_field :quantity, value: item.quantity.to_i %>
+        <%= f.submit "Actualizar Carro" %>
+        <%= link_to "Eliminar elemento", item, method: :delete, remote: :true %>
+          <h3> Subtotal: <%= item.total %></h3>
+        <h3> Total: <%= current_cart.total_price %></h3>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
-    <div class="method-pay">
-      <h3> Total: <%= current_cart.total_price %></h3>
-      <%= link_to "Pagar con tarjeta crédito",  order_checkout_index_path(current_cart), method: :post , remote: true, class: "btn btn-primary" %>
-    <%# <%= link_to  "Pagar",  cart_checkout_index_path(current_cart), method: :post %> %>
+    <div class="method-pay d-flex m-4">
+      <%= link_to  "Atrás", root_path %>
+      <%= link_to "Pagar con tarjeta crédito", order_create_path(current_cart), method: :post , remote: true, class: "btn btn-primary" %>
+    <%# <%= link_to  "Pagar",  cart_checkout_index_path(current_cart), method: :post %> 
     </div>
-  <%= link_to  "Atrás", root_path %>
 </div>

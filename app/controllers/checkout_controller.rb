@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
       {price: product.stripe_pricing_id, quantity: 1, description: product.name}
     end
 
-    session =  Stripe::Checkout::Session.create({
+    @session =  Stripe::Checkout::Session.create({
       cancel_url: cart_url(current_cart),
       success_url: root_url,
       mode: 'payment',
@@ -14,7 +14,7 @@ class CheckoutController < ApplicationController
       line_items: prices
     })
 
-    redirect_to session.url
+    redirect_to @session.url
   end
 
   # def create

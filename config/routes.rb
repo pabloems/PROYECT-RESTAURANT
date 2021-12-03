@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   end
   resources :products, only: %i[index show edit update destroy]
   resources :carts, only: [:show] do
+    # get '/checkout' ,to: 'carts#checkout'
     get '/cart', to: 'carts#show'
   end
+  # resources :checkout, only: [:create]
   resources :cart_items, only: %i[create destroy update]
   resources :product_categories, only: %i[create destroy]
-  resources :orders, only: %i[show index create update] do
-    resources :checkout, only: [:create]
-  end
+  resources :orders, only: %i[show index create update]
   resources :categories, only: :show
-  
-  # post "order/create", to: "checkout#create"
-  
-  
+
+  post "order/create", to: "checkout#create"
+
+
 end
