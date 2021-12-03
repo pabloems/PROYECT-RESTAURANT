@@ -11,5 +11,18 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
 
+  # Callback
+  after_create :create_stripe_product
+
+  def create_stripe_product
+    product = Stripe::Product.create({name: "Producto ##{id}"})
+    pricing = Stripe::Price.create({
+      product: product.id,
+      unit_amount: price,
+      currency: 'clp'
+    })
+    update(stripe_product_id: product.id , stripe_pricing_id: pricing.id)
+  end
+
 end
 

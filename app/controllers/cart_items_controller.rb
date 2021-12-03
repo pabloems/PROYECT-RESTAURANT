@@ -3,10 +3,14 @@ class CartItemsController < ApplicationController
    before_action :set_cart
 
     def create
-      # cart_item
       @cart_items = @cart.cart_items.new(cart_items_params)
       join = @cart.cart_items.where(product_id: @cart_items[:product_id])
-      @cart.save
+      if join.size == 0
+        @cart.save
+      else
+        join.first.update(quantity: join.first.quantity + @cart_items[:quantity])
+      end
+
       session[:cart_id] = @cart.id
       respond_to do |format|
         format.html { redirect_to request.referrer }
@@ -18,6 +22,9 @@ class CartItemsController < ApplicationController
       @cart_item = @cart.cart_items.find(params[:id])
       @cart_item.update(cart_items_params)
       @cart_items = current_cart.cart_items
+      if @cart_item.blank?
+        @cart_item.destroy
+      end
     end
 
     def destroy

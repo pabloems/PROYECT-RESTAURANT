@@ -14,8 +14,8 @@ ActiveAdmin.register User do
   index do
     selectable_column
     column :id
-    column 'Colaborador' do |display|
-      display.name + ' ' + display.last_name
+    column 'Colaborador' do |u|
+      u.full_name
     end
     column :email
     column :phone
@@ -44,7 +44,7 @@ ActiveAdmin.register User do
   show do
     attributes_table do
       row 'Usuario' do |u|
-        u.name + " " + u.last_name
+        u.full_name
       end
       row :email
       row :phone

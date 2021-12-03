@@ -5,17 +5,14 @@ ActiveAdmin.register Order do
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
 
-
-
-
   filter :user
   filter :paid
   filter :created_at
 
   index do
     selectable_column
-    column 'Usuario' do |u|
-       u.user.name + ' ' + u.user.last_name
+    column 'Colaborador' do |u|
+       u.full_name
     end
     column :cart_id
     column :paid
@@ -33,8 +30,8 @@ ActiveAdmin.register Order do
 
   show do
     attributes_table do
-      row "Usuario" do |u|
-        u.user.name + " " + u.user.last_name
+      row "Colaborador" do |u|
+        u.full_name
       end
       row :status
       row :cart_id
