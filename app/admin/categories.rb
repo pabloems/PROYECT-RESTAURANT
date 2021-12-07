@@ -21,7 +21,7 @@ ActiveAdmin.register Category do
 
   controller do
 
-    before_action :set_category, only: [:show]
+    before_action :set_category, only: [:show ]
 
     def show
       @products = @category.products

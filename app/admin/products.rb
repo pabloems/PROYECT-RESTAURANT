@@ -37,7 +37,7 @@ ActiveAdmin.register Product do
         private
     
         def product_params
-          params.require(:product).permit(:name, :description, :price, :active, :store_id, :image)
+          params.require(:product).permit(:name, :description, :price, :active, :store_id, :category_ids, :image)
         end
     
         def find_store
