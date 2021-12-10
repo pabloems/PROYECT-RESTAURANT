@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def home
       @products = Product.all
       @cart_item = current_cart.cart_items.new
+      @categories = Category.all
   end
 
 end

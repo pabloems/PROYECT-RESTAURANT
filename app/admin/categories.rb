@@ -5,10 +5,11 @@ ActiveAdmin.register Category do
 
 
    permit_params do
-    permitted = [:name]
+    permitted = [:name, :photo]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
+
   # Filtros personalizados
   filter :name
 
@@ -18,6 +19,11 @@ ActiveAdmin.register Category do
     column :created_at
     actions
   end
+
+
+  # Render de New Category
+  form partial: 'form', locals: {resource: Category.new}
+
 
   controller do
 
