@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: :show
 
   def show
-    @product = @category.products
+    @pagy, @products = pagy(@category.products, items: 5)
   end
 
   private

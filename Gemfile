@@ -66,10 +66,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'font-awesome-sass'
   gem 'simple_form'
 
-
+# Para crear datos 
   gem 'faker'
 
-
+# Trabajar en front
   gem 'jquery-rails'
 
+# Permite añadir pago crédito
   gem 'stripe'
+
+  # Añade paginación
+  gem 'pagy', '~> 5.6'
