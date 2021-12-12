@@ -7,7 +7,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
+  <div class="search_form">
+    <%= render './pages/search_form.html.erb' %>
+  </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>

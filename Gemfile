@@ -77,3 +77,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   # Añade paginación
   gem 'pagy', '~> 5.6'
+
+  # Búsqueda de elementos (scope´s)
+  gem 'ransack'

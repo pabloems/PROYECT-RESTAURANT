@@ -4,24 +4,26 @@
 
 <h1 class ='text-center mt-5'>Categorías</h1>
 
-<div class="d-flex justify-content-around p-5">
-  <% @categories.each do |category| %>
+  <div class="d-flex justify-content-around p-5">
+    <% @categories.each do |category| %>
 
-  <div class="category-card">
-    <%= link_to(category_path(category)) do %>
+    <div class="category-card">
+      <%= link_to(category_path(category)) do %>
 
-      <% if category.photo.attached? %>
-        <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
-      <% else %>
-        <%= image_tag ("imagen-no-disponible.png"), alt: "#{category.name}", class: "category-img"%>
+        <% if category.photo.attached? %>
+          <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
+        <% else %>
+          <%= image_tag ("imagen-no-disponible.png"), alt: "#{category.name}", class: "category-img"%>
+        <% end %>
+        <p><%= category.name %></p>
       <% end %>
-      <p><%= category.name %></p>
+    </div>
+
     <% end %>
+
   </div>
-
-  <% end %>
-
-</div>
-
+  <div class="search_form">
+    <%= render 'search_form.html.erb' %>
+  </div>
 
 </div>
