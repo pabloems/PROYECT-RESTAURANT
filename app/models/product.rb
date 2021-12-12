@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   validates :name, presence: true, length: {minimum: 3, maximum:100}
   validates :description, presence: true
   validates :price, presence: true
+  
 
   # Callback
   after_create :create_stripe_product

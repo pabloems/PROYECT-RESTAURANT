@@ -1,4 +1,4 @@
-ActiveAdmin.register Order do
+ActiveAdmin.register Order, as: "Ordenes"  do
 # , as: "Ordenes"
   actions :index, :show
 

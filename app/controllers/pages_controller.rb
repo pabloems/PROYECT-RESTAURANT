@@ -6,8 +6,10 @@ class PagesController < ApplicationController
 
 
   def home
-      @products = Product.all
-      @cart_item = current_cart.cart_items.new
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    @categories = Category.all
+    @cart_item = current_cart.cart_items.new
   end
 
 end
