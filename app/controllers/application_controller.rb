@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_action :authenticate_user!
+    before_action :set_q
 
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
@@ -12,21 +13,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name, :phone, :phone])
   end
 
-  # def resource_name
-  #   :user
-  # end
 
-  # def resource
-  #   @resource ||= User.new
-  # end
+  private
 
-
-  # def resource_class
-  #   User
-  # end
-
-  # def devise_mapping
-  #   @devise_mapping ||= Devise.mappings[:user]
-  # end
+  def set_q
+    @q = Product.ransack(params[:q])
+  end
 
 end

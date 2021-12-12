@@ -1,10 +1,10 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Product, as: "Productos"  do
 
   # Permite crear la páginación
   config.per_page = 10
 
   # Permite contenerlo en el menú adminstración
-  menu parent: :some_menu_id
+  # menu parent: :some_menu_id
 
 
   permit_params :name, :description, :price, :active, :store_id, :image, category_ids:[],
@@ -56,7 +56,7 @@ ActiveAdmin.register Product do
       product.categories.map{ |bg| bg.name}
     end
     toggle_bool_column :active
-    column "Image" do |product|
+    column "Imagen" do |product|
       if product.image.attached?
         image_tag product.image, class: 'image_product', size:'75x75'
       else

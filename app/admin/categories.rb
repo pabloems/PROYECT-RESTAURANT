@@ -1,7 +1,7 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Category , as: "Categorias" do
 # , as: "Categorias"
   # Permite contenerlo en el menú adminstración
-  menu parent: :some_menu_id
+  # menu parent: :some_menu_id
 
 
    permit_params do
@@ -17,6 +17,13 @@ ActiveAdmin.register Category do
     selectable_column
     column :name
     column :created_at
+    column "Imagen" do |category|
+      if category.photo.attached?
+        image_tag category.photo, class: 'image_product', size: '75x75'
+      else
+        image_tag 'logo.png', class: 'image_product', size: '75x75'
+      end
+    end
     actions
   end
 
