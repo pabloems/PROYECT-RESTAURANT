@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
 
   def new
 
-    @order = current_user.orders.where(status: 'pendiente').find(params[:order_id])
+    @order = current_user.orders.where(status: 'Pendiente').find(params[:order_id])
 
 
     # @order.user = current_user

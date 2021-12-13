@@ -16,6 +16,7 @@ ActiveAdmin.register Order, as: "Ordenes"  do
     end
     column :cart_id
     column :paid
+    column :status
     actions
   end
 
