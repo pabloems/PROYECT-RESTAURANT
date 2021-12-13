@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   # resources :checkout, only: [:create]
   resources :cart_items, only: %i[create destroy update]
   resources :product_categories, only: %i[create destroy]
-  resources :orders, only: %i[show index create update]
+  resources :orders, only: %i[show index create update] do
+     resources :payments, only: :new
+  end
   resources :categories, only: :show
 
   # post "order/create", to: "checkout#create"

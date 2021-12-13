@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row py-4">
+<%#     <div class="col-md-3"><%= image_tag @order.teddy.photo_url, width: '100%' %>
+    <div class="col">
+      <h1>Confirmar Pago</h1>
+      <p>Atendido por: <strong><%= @order.user.full_name %></strong> Por <strong >$ <%= @order.cart.total_price %></strong></p>
+      <p><strong>Fecha de Transacción</strong>: <%=  @order.created_at.strftime("%d de %b del %Y")  %></p>
+      <button id="pay" class="btn btn-primary">Pagar</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>
