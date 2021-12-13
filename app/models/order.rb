@@ -15,6 +15,7 @@ class Order < ApplicationRecord
   completed: 'Completada'
   }
 
+  
   private
 
   def set_status

@@ -1,10 +1,19 @@
 <div class="container">
-  <h1>Categorías</h1>
-  <%= @products.each do |category| %>
-    <%= category.name %>
-    <%= category.description %>
-    <%= category.price %>
-  <% end %>
-  <%# <%== pagy_nav(@pagy) %>
-  <%== pagy_bootstrap_nav(@pagy) %>
+  <h1 class = 'text-center m-3'>Categoría <%= @category.name %></h1>
+  <div class="product-card d-grid">
+    <% @products.each do |product| %>
+          <h3>  <%= product.name %></h3>
+          <h3>  <%= product.price%></h3>
+      <%= simple_form_for(@cart_item, remote: true ) do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, value: 0, min: 0 %>
+        <%= f.submit "Agregar al carro" %>
+
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center m-3">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
 </div>
