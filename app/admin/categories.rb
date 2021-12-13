@@ -1,4 +1,4 @@
-ActiveAdmin.register Category , as: "Categorias" do
+ActiveAdmin.register Category  do
 # , as: "Categorias"
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id
@@ -28,19 +28,31 @@ ActiveAdmin.register Category , as: "Categorias" do
   end
 
 
-  # Render de New Category
-  form partial: 'form', locals: {resource: Category.new}
+  # # Render de New Category
+  # form partial: 'form', locals: {resource: Category.new}
 
 
   controller do
 
-    before_action :set_category, only: [:show ]
+    before_action :set_category, only: [:show]
+
+    # def new
+    #   @category = Category.new
+    # end
+
+    # def create
+    #   @category = Category.new(category_params)
+    # end
 
     def show
       @products = @category.products
     end
 
     private
+    
+    def category_params
+      params.require(:category).permit(:name, :photo)
+    end
 
     def set_category
       @category = Category.find(params[:id])
