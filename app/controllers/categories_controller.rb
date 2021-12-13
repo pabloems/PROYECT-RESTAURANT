@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
     else
     @pagy, @products = pagy(@category.products, items: 5)
     end
+    @cart_item = current_cart.cart_items.new
   end
 
   private

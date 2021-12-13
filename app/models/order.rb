@@ -4,22 +4,23 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :user, allow_destroy: false
 
-  before_create :set_status
+  # before_create :set_status
 
-  STATUSES = {
+  # STATUSES = {
 
-  in_process:'En proceso',
-  rejected: 'Rechazada',
-  payed: 'Pagada',
-  on_delivery: 'En tránsito',
-  completed: 'Completada'
-  }
+  # in_process:'En proceso',
+  # rejected: 'Rechazada',
+  # payed: 'Pagada',
+  # on_delivery: 'En tránsito',
+  # completed: 'Completada'
+  # }
 
-  private
+  
+  # private
 
-  def set_status
-    self.status = STATUSES[:payed]
-  end
+  # def set_status
+  #   self.status = STATUSES[:payed]
+  # end
 
 
 end

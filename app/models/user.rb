@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :store, inverse_of: :users, required: false
+  has_many :orders, dependent: :destroy
+  has_many :carts, dependent: :destroy
 
 
   before_validation :create_store

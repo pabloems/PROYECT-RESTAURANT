@@ -11,11 +11,12 @@ ActiveAdmin.register Order, as: "Ordenes"  do
 
   index do
     selectable_column
-    column 'Colaborador' do |u|
-       u.full_name
+    column 'Usuario' do |u|
+       u.user.name + ' ' + u.user.last_name
     end
     column :cart_id
     column :paid
+    column :status
     actions
   end
 
@@ -30,8 +31,8 @@ ActiveAdmin.register Order, as: "Ordenes"  do
 
   show do
     attributes_table do
-      row "Colaborador" do |u|
-        u.full_name
+      row "Usuario" do |u|
+        u.user.name + " " + u.user.last_name
       end
       row :status
       row :cart_id
