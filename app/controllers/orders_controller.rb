@@ -39,11 +39,5 @@ class OrdersController < ApplicationController
 
   end
 
-  private
-
-  def initialize_cart
-    session[:cart_id] ||= []
-  end
-
 
 end
