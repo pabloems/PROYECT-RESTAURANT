@@ -1,5 +1,5 @@
-ActiveAdmin.register Product, as: "Productos"  do
-
+ActiveAdmin.register Product  do
+# , as: "Productos"
   # Permite crear la páginación
   config.per_page = 10
 
