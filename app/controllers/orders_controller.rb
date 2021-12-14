@@ -2,13 +2,12 @@ require_relative '../models/cart'
 
 class OrdersController < ApplicationController
 
-  before_action :set_order, only: [:show]
-
   def index
     @orders = current_user.orders
   end
 
   def show
+    @order = current_user.orders.find(params[:id])
   end
 
   def create
@@ -34,13 +33,6 @@ class OrdersController < ApplicationController
     order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(order)
 
-  end
-
-
-  private
-
-  def set_order
-    @order = Order.find(params[:id])
   end
 
 end
