@@ -29,7 +29,7 @@ ActiveAdmin.register Category  do
 
 
   # # Render de New Category
-  form partial: 'form', locals: {resource: Category.new}
+  # form partial: 'form', locals: {resource: Category.new}
 
 
   controller do
