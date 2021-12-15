@@ -3,8 +3,10 @@ class StripeCheckoutSessionService
 
     order = Order.find_by(checkout_session_id: event.data.object.id)
     order.update(status: 'Pagado', paid: true)
+    @order.cart = current_cart
+    current_cart = Cart.find_by_id(session[:cart_id])
     if @order.paid == true
-      session[:cart_id] = nil
+      current_cart.destroy
     end
 
   end
