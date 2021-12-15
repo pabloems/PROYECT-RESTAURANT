@@ -36,10 +36,6 @@ class OrdersController < ApplicationController
     order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(order)
 
-    if @order.save
-      session[:cart_id] = nil
-    end
-
   end
 
 
