@@ -3,6 +3,9 @@ ActiveAdmin.register Category  do
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id
 
+  
+  # Permite crear la páginación
+  config.per_page = 10
 
    permit_params do
     permitted = [:name, :photo]

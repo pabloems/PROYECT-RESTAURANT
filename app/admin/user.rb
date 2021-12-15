@@ -1,10 +1,14 @@
-ActiveAdmin.register User, as: "Usuarios"  do
+ActiveAdmin.register User do
 # , as: "Colaboradores"
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id
+
+  
+  # Permite crear la páginación
+  config.per_page = 10
 
   # Filtros personalizados
   filter :admin

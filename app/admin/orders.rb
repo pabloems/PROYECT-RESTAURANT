@@ -1,10 +1,14 @@
-ActiveAdmin.register Order, as: "Ordenes"  do
+ActiveAdmin.register Order  do
 # , as: "Ordenes"
   actions :index, :show
 
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
 
+  # Permite crear la páginación
+  config.per_page = 10
+
+  # Filtros personalizados (addons-gem)
   filter :user
   filter :paid
   filter :created_at

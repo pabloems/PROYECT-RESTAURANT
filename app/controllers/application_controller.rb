@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-
   def initialize_session
     session[:cart_id] ||= []
   end
