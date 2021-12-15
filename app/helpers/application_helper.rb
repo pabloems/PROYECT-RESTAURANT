@@ -7,4 +7,5 @@ module ApplicationHelper
     return cart if cart
     Cart.new(user: current_user, active: true)
   end
+
 end

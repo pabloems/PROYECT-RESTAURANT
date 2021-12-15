@@ -1,5 +1,5 @@
-ActiveAdmin.register Product, as: "Productos"  do
-
+ActiveAdmin.register Product  do
+# , as: "Productos"
   # Permite crear la páginación
   config.per_page = 10
 
@@ -39,7 +39,7 @@ ActiveAdmin.register Product, as: "Productos"  do
         def product_params
           params.require(:product).permit(:name, :description, :price, :active, :store_id, :category_ids, :image)
         end
-    
+
         def find_store
           @store = Store.first(params[:store_id])
         end
@@ -77,7 +77,8 @@ ActiveAdmin.register Product, as: "Productos"  do
       end
     end
 
+    
   # Render de New Product
-  form partial: 'form', locals: {resource: Product.new}
+  # form partial: 'form', locals: {resource: Product.new}
 
 end

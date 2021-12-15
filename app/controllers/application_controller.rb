@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_action :authenticate_user!
-    before_action :set_q
+  before_action :set_q
+  before_action :initialize_session
 
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
@@ -15,6 +16,11 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+  def initialize_session
+    session[:cart_id] ||= []
+  end
+
 
   def set_q
     @q = Product.ransack(params[:q])

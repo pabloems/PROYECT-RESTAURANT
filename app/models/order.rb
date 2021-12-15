@@ -22,5 +22,6 @@ class Order < ApplicationRecord
   #   self.status = STATUSES[:payed]
   # end
 
+  
 
 end

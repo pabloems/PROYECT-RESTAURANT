@@ -4,7 +4,9 @@ class PaymentsController < ApplicationController
 
     @order = current_user.orders.where(status: 'Pendiente').find(params[:order_id])
 
-
+    if @order.save
+      session[:cart_id] = nil
+    end
     # @order.user = current_user
     # @order.cart = current_cart
     # current_cart = Cart.find_by_id(session[:cart_id])

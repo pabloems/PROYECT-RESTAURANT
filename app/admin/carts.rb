@@ -1,11 +1,15 @@
-ActiveAdmin.register Cart, as: "Compras" do
+ActiveAdmin.register Cart do
 # , as: "Carritos"  
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity],
   users_attributes: [ :name, :last_name ]
   actions :index, :show
 
-# Filtros empleados
+  
+  # Permite crear la páginación
+  config.per_page = 10
+
+# Filtros personalizados (addons-gem)
   filter :user
   filter :active
   filter :total_price

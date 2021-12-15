@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   end
   resources :products, only: %i[index show edit update destroy]
   resources :carts, only: [:show] do
-    # get '/checkout' ,to: 'carts#checkout'
     get '/cart', to: 'carts#show'
   end
   # resources :checkout, only: [:create]
@@ -19,7 +18,8 @@ Rails.application.routes.draw do
      resources :payments, only: :new
   end
   resources :categories, only: :show
-
+  # Evento para manejar el estado de la orden
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   # post "order/create", to: "checkout#create"
 
 

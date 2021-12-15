@@ -2,13 +2,13 @@ require_relative '../models/cart'
 
 class OrdersController < ApplicationController
 
-  before_action :set_order, only: [:show]
 
   def index
     @orders = current_user.orders
   end
 
   def show
+    @order = current_user.orders.find(params[:id])
   end
 
   def create
@@ -19,14 +19,16 @@ class OrdersController < ApplicationController
 
     current_cart = Cart.find_by_id(session[:cart_id])
     order = Order.create!(cart: current_cart, status: 'Pendiente', user: current_user )
-    prices = current_cart.products.map do |product|
-      {price: product.stripe_pricing_id, quantity: 1, description: product.name}
-    end
 
     session =  Stripe::Checkout::Session.create({
       mode: 'payment',
       payment_method_types: ['card'],
-      line_items: prices,
+      line_items:  [{
+        name: current_cart.id ,
+        amount: current_cart.total_price,
+        currency: 'clp',
+        quantity: 1
+      }],
       success_url: order_url(order),
       cancel_url: order_url(order)
     })
@@ -36,11 +38,5 @@ class OrdersController < ApplicationController
 
   end
 
-
-  private
-
-  def set_order
-    @order = Order.find(params[:id])
-  end
 
 end

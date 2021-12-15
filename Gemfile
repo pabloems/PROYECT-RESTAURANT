@@ -74,6 +74,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Permite añadir pago crédito
   gem 'stripe'
+# Manejo de estado para orders
+  gem 'stripe_event'
 
   # Añade paginación
   gem 'pagy', '~> 5.6'
