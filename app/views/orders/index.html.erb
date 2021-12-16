@@ -1,0 +1,50 @@
+<div class="container">
+
+  <% if @orders.empty? %>
+  <div class="text-center m-4">
+    <h1>Mis pedidos</h1>
+    <hr/>
+    <h3>Aún no has realizado pedidos.</h3>
+  </div>
+    <div class="empty-orders">
+      <%= link_to  "Volver al inicio", root_path, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+  <div class="container align-items-center d-flex flex-column">
+    <h1 class="m-4">Mis pedidos</h1>
+      <% @orders.order(id: :desc).each do |order| %>
+    <div class="orders-card d-flex flex-column my-3">
+      <div class="d-flex justify-content-between ml-3 mr-2 ">
+          <p>Pedido Nº <%= order.id %></p>
+          <p>Pedido recibido: <%= order.created_at %></p>
+      </div>
+      <div class="order-divider"></div>
+      <% order.cart.cart_items.each do |item| %>
+
+      <div class="d-flex align-items-center">
+        <% if item.product.image.attached? %>
+          <% image_tag item.product.image, alt: "#{item.product.name}" , class: 'order-image'%>
+        <% else %>
+          <%= image_tag 'logo.png', alt: "#{item.product.name}", class: 'order-image' %>
+        <% end %>
+          <div class="d-flex justify-content-between">
+            <%= item.product.name %>
+            <p> $ <%= item.product.price%></p>
+          </div>
+      </div>
+      <% end %>
+      <div class="order-divider"></div>
+      <div class="d-flex justify-content-between ml-3 mr-2 ">
+          <p>Estado del pedido: <%= order.status %></p>
+          <p>Total de la compra: $ <%= order.cart.total_price %></p>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+
+  <% end %>
+  <div class="d-flex justify-content-center m-3">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>

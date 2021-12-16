@@ -2,23 +2,24 @@
 <div class= "container" >
 
 <h1 class ='text-center mt-5'>Categorías</h1>
+    <hr/>
 
-  <div class="d-flex justify-content-around p-5 m-5">
+  <div class="container ">
     <% @categories.each do |category| %>
-    <div class="category-card">
       <%= link_to(category_path(category)) do %>
-        <% if category.photo.attached? %>
-          <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
-        <% else %>
-          <%= image_tag ("imagen-no-disponible.jpg"), alt: "#{category.name}", class: "category-img"%>
-        <% end %>
-           <p class = "category-name"><%= category.name %></p>
+        <div class="category-card d-flex flex-column m-4">
+            <% if category.photo.attached? %>
+                <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
+            <% else %>
+              <%= image_tag ("imagen-no-disponible.jpg"), alt: "#{category.name}", class: "category-img"%>
+            <% end %>
+              <p class = "category-name"><%= category.name %></p>
+        </div>
       <% end %>
-    </div>
-
     <% end %>
-
   </div>
+
+
   <%# <div class="search_form">
     <%= render 'search_form.html.erb' %>
   <%# </div> %> 
