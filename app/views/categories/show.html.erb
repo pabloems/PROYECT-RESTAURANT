@@ -14,6 +14,7 @@
   </div>
 
   <div class="d-flex justify-content-center m-3">
-    <%== pagy_bootstrap_nav(@pagy) %>
+  <%# Muestra paginación solo si existe más de 1 pág %>
+    <%== pagy_bootstrap_nav(@pagy)  if @pagy.pages > 1 %>
   </div>
 </div>

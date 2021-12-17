@@ -7,14 +7,14 @@
   <div class="container ">
     <% @categories.each do |category| %>
       <%= link_to(category_path(category)) do %>
-        <div class="category-card d-flex flex-column m-4">
+        <div class="category-card d-flex flex-column m-3">
             <% if category.photo.attached? %>
                 <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
             <% else %>
               <%= image_tag ("imagen-no-disponible.jpg"), alt: "#{category.name}", class: "category-img"%>
             <% end %>
-              <p class = "category-name"><%= category.name %></p>
         </div>
+              <p class = "category-name text-align-center"><%= category.name %></p>
       <% end %>
     <% end %>
   </div>
