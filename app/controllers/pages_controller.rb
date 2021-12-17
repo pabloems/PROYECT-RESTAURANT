@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+
   require_relative "../models/store"
   require_relative "../models/product"
   skip_before_action :authenticate_user!, only: [ :home ]

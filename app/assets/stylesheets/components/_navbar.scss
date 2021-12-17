@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #F4F4F4;
+  border-bottom: 1px solid #E6E6E6;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,23 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.empty-orders{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p.cart-navbar{
+  font-size: 0.8em;
+}
+
+.no-decoration{
+text-decoration: none;
+}
+
+.user-icon{
+  text-decoration: none;
+  color: #000000;
 }

@@ -1,16 +1,8 @@
 // Specific CSS for your home-page
-
-// .display-categories{
-//   display: flex;
-//   flex-direction: column;
-//   flex-wrap: wrap;
-// }
-
-.category-card{
-  padding: 1rem;
+body{
+  background: #ffffff;
 }
 
-.category-img{
-  height: 100px;
-  width: 100px;
+.container{
+  min-height: calc(100vh - 100px );
 }

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
 
   def index
-    @orders = current_user.orders
+    @pagy, @orders = pagy(current_user.orders, items: 10)
   end
 
   def show

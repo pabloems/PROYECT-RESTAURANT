@@ -58,9 +58,9 @@ ActiveAdmin.register Product  do
     toggle_bool_column :active
     column "Imagen" do |product|
       if product.image.attached?
-        image_tag product.image, class: 'image_product', size:'75x75'
+        image_tag product.image, size:'60x60'
       else
-        image_tag 'logo.png', class: 'image_product', size:'75x50'
+        image_tag 'logo.png', size:'60x60'
       end
     end
     actions
@@ -79,6 +79,6 @@ ActiveAdmin.register Product  do
 
     
   # Render de New Product
-  # form partial: 'form', locals: {resource: Product.new}
+  form partial: 'form', locals: {resource: Product.new}
 
 end
