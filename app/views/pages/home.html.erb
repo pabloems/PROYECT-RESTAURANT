@@ -1,27 +1,25 @@
 
 <div class= "container" >
 
-<h1 class ='text-center mt-5'>Categorías</h1>
-    <hr/>
+<h1 class ='text-center title-style '>Categorías</h1>
+  <div class="d-flex flex-column">
+    <div class="cards-category align-items-center mt-3 mb-2">
+      <% @categories.each do |category| %>
+        <%= link_to(category_path(category)) do %>
+          <% if category.photo.attached? %>
 
-  <div class="container ">
-    <% @categories.each do |category| %>
-      <%= link_to(category_path(category)) do %>
-        <div class="category-card d-flex flex-column m-3">
-            <% if category.photo.attached? %>
-                <%= image_tag  category.photo, alt: "#{category.name}", class: "category-img"%>
-            <% else %>
-              <%= image_tag ("imagen-no-disponible.jpg"), alt: "#{category.name}", class: "category-img"%>
-            <% end %>
-        </div>
-              <p class = "category-name text-align-center"><%= category.name %></p>
+            <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('<%= rails_blob_url category.photo ,crop: :fill %>');">
+              <h3 class = 'category-name '><%= category.name %></h3>
+            </div>
+          <% else %>
+            <div class="category-card category-img">
+              <h3 class = 'category-name '><%= category.name %></h3>
+            </div>
+
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-
-
-  <%# <div class="search_form">
-    <%= render 'search_form.html.erb' %>
-  <%# </div> %> 
 
 </div>

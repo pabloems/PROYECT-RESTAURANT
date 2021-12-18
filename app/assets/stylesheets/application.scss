@@ -19,3 +19,18 @@
 @import "orders/orders_card";
 
 @import "components/footer";
+
+
+// Quitar formato de link (subrayado)
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Formato de titulos
+.title-style{
+  margin-top: 10px;
+  text-align: center;
+}
