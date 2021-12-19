@@ -38,6 +38,7 @@ module PROYECTRestaurant
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Soluciona problemas para compilar scss
+    # false
     config.assets.configure do |env|
         env.export_concurrent = true
     end
