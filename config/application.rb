@@ -37,6 +37,8 @@ module PROYECTRestaurant
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.assets.compile = true
+
     # Soluciona problemas para compilar scss
     # false
     config.assets.configure do |env|
