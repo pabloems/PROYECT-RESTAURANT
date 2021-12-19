@@ -74,6 +74,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Permite añadir pago crédito
   gem 'stripe'
+
 # Manejo de estado para orders
   gem 'stripe_event'
 
@@ -82,3 +83,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   # Búsqueda de elementos (scope´s)
   gem 'ransack'
+
+  #  Uploads images
+  gem 'cloudinary', '~> 1.16.0'
