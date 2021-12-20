@@ -19,12 +19,21 @@
 }
 
 p.cart-navbar{
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .no-decoration{
-text-decoration: none;
+  text-decoration: none!important;
+  &:hover {
+    text-decoration: none!important;
+  }
+  &:focus {
+    text-decoration: none!important;
+  }
 }
+
+
+
 
 .user-icon{
   text-decoration: none;
