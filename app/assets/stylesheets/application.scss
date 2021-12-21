@@ -23,11 +23,19 @@
 
 // Quitar formato de link (subrayado)
 a {
-  text-decoration: none;
+  text-decoration: none!important;
   &:hover {
-    text-decoration: none;
+    text-decoration: none!important;
+  }
+  &:focus {
+    text-decoration: none!important;
   }
 }
+
+.navbar {
+  text-decoration: none !important;
+}
+
 
 // Formato de titulos
 .title-style{

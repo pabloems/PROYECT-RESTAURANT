@@ -1,46 +1,67 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%# <%= image_tag "logo.png" %>Restaurant App
-    <% end %>
-
-  <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand " href='/'>Restaurant App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button> %>
+  </button>
 
-  <div class="search_form">
-    <%= render './pages/search_form.html.erb' %>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto align-items-center">
+  <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto align-items-center ">
       <% if user_signed_in? %>
-        <li class="nav-item active d-flex mx-3 dropdown no-decoration">
-          <%= link_to  cart_path(current_user), class: "nav-link" do %>
-            <i class="fas fa-shopping-cart fa-lg"></i>
+
+      <div class="d-flex navbar-style justify-content-sm-between">
+
+      <li class="nav-item active d-flex mx-4 ">
+       <%= link_to '/cart' do %>
+            <div class="d-flex align-items-center user-icon">
+              <div class="mr-2">
+                <i class="fas fa-shopping-cart fa-lg "></i>
+              </div>
+              <div class="d-flex flex-column over-title">
+                <p class='cart-navbar'>Pedido</p>
+                <div id='cart'>
+                  <%= render 'carts/cart' %>
+                </div>
+              </div>
+            </div>
           <% end %>
-        </li>
-        <li class="nav-item dropdown no-decoration">
-          <%= link_to  "#", class: 'no-decoration', id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-          <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/pabloems", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> 
+      </li>
 
-          <div class="mr-2 user-icon">
-            <i class="fas fa-user fa-lg"></i>
-          </div>
-          
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %>
+      <li class="nav-item dropdown ">
+              <%= link_to "#", class: "no-decoration", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+                <div class="d-flex align-items-center  user-icon">
+                  <div class="mr-2">
+                    <i class="fas fa-user fa-lg"></i>
+                  </div>
+                  <div class="d-flex flex-column over-title">
+                    <p class="cart-navbar">Hola!</p>
+                    <p class="cart-navbar "><%= current_user.name %></p>
+                  </div>
+                </div>
+              <% end %>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
             <% if current_user.admin? %>
               <%= link_to  "Administración", admin_dashboard_path, class: "dropdown-item" %>
             <% end %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-          <% end %>
-        </li>
-      <% else %>
+             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </a>
+        </div>
+
+      </li>
+      </div>
+
+        <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
+
+  <div class="search_form">
+    <%= render './pages/search_form.html.erb' %>
   </div>
-</div>
+
+  </div>
+</nav>

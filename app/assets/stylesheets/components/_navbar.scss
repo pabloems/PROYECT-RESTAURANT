@@ -1,4 +1,4 @@
-.navbar-lewagon {
+.navbar-style {
   justify-content: space-between;
   background: #F4F4F4;
   border-bottom: 1px solid #E6E6E6;
@@ -19,14 +19,40 @@
 }
 
 p.cart-navbar{
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .no-decoration{
-text-decoration: none;
+  text-decoration: none!important;
+  &:hover {
+    text-decoration: none!important;
+  }
+  &:focus {
+    text-decoration: none!important;
+  }
 }
 
 .user-icon{
   text-decoration: none;
   color: #000000;
 }
+
+
+.price{
+  font-size: 0.2em;
+}
+
+
+// .user-name,
+// .dropdown-title {
+//   font-size: 0.85em;
+//   font-weight: 700;
+//   color: #212121;
+// }
+
+
+//   .user-name,
+//   .price,
+//   .dropdown-title {
+//     font-size: 0.7em;
+//   }
