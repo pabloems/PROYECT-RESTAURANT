@@ -31,7 +31,10 @@
 </div>
 <% else %>
 <div class="container">
-  <h1>No tienes elementos para realizar un pedido</h1>
+  <div class="title-style mt-5">
+  <h1>No tienes productos para realizar un pedido</h1>
+  <%= link_to  "Atrás", root_path, class: "btn btn-warning mt-3" %>
+  </div>
 </div>
 
 <% end %>
