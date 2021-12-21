@@ -1,0 +1,15 @@
+    <% @products.each do |product| %>
+      <% if product.active %>
+          <p>  <%= product.name %></p>
+          <p>$<%= product.price%></p>
+
+          <%# Form add-cart %>
+      <%= simple_form_for(@cart_item, remote: true ) do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, value: 0, min: 0 %>
+        <%= f.submit "Agregar al carro" %>
+      <% end %>
+
+<%#       If product.active %>
+      <% end %>
+    <% end %>
