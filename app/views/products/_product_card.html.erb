@@ -1,15 +1,29 @@
-    <% @products.each do |product| %>
-      <% if product.active %>
-          <p>  <%= product.name %></p>
-          <p>$<%= product.price%></p>
+<% @products.each do |product| %>
+  <% if product.active %>
+      
+      <%# Manejo de display-products %>
+      <div class="product-display ">
+        <div class="product-display">
 
-          <%# Form add-cart %>
-      <%= simple_form_for(@cart_item, remote: true ) do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, value: 0, min: 0 %>
-        <%= f.submit "Agregar al carro" %>
-      <% end %>
+          <div class="product-content">
+            <p><%= product.name %></p>
+            <p><%= product.description %></p>
+            <p>$<%= product.price%></p>
+          </div>
 
+            <%# Form add-cart %>
+          <div class="d-flex flex-column align-items-center ">
+          <%= simple_form_for(@cart_item, remote: true ) do |f| %>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.number_field :quantity, value: 0, min: 0 %>
+            <%= f.submit "Añadir a la orden" , class: "btn btn-primary"%>
+          <% end %>
+          </div>
+
+        </div>
+
+      <%# Manejo de display-products %>
+    </div>
 <%#       If product.active %>
-      <% end %>
-    <% end %>
+  <% end %>
+<% end %>
