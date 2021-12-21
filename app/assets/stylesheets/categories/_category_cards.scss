@@ -21,7 +21,7 @@
 
 .category-card{
   height: 250px;
-  width: 90%;
+  width: 100%;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
@@ -31,7 +31,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &:hover{
     background-color: #F5EFEF;
-    transform: scale(1);
+    transform: scale(1.1);
     box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.05), 4px 4px 20px rgba(0, 0, 0, 0.05);
   }
 }
