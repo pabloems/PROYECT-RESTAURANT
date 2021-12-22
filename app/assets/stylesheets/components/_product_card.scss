@@ -1,0 +1,25 @@
+.cards-product-display{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Media Query formato responsive
+@media(max-width: 992px) {
+  .cards-product-display{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards-product-display {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-card{
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  border: solid 1px;
+}

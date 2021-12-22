@@ -15,6 +15,10 @@ class Product < ApplicationRecord
   # Callback
   after_create :create_stripe_product
 
+  # Scope product-active
+  scope :visible, -> {where(active: true)}
+
+
   def create_stripe_product
     product = Stripe::Product.create({name: "Producto ##{id}"})
     pricing = Stripe::Price.create({

@@ -1,0 +1,30 @@
+<% @products.each do |product| %>
+  <% if product.active %>
+      
+
+      <div class="m-1 d-flex flex-column">
+
+        <div class="product-card ">
+      <%# Manejo de display-products %>
+          <p><%= product.name %></p>
+          <p><%= product.description %></p>
+          <p>$<%= product.price%></p>
+
+            <%# Form add-cart %>
+          <div class=" align-items-center ">
+            <%= simple_form_for(@cart_item, remote: true ) do |f| %>
+              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.number_field :quantity, value: 0, min: 0 %>
+              <%= f.submit "Añadir a la orden" , class: "btn btn-primary"%>
+            <% end %>
+          </div>
+          
+
+    <%# product-card %>
+        </div>
+
+    </div>
+
+<%#       If product.active %>
+  <% end %>
+<% end %>
