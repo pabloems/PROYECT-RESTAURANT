@@ -3,6 +3,8 @@
   <h2 class="mt-3">Pedido</h2>
 
   <div class="cart-items d-grid">
+
+
     <% @cart_items.each do |item| %>
     <h3><%= item.product.name %></h3>
     <h3><%= item.product.price %></h3>
@@ -10,9 +12,12 @@
     <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
         <%= f.hidden_field :product_id, value: item.product_id %>
         <%= f.number_field :quantity, value: item.quantity.to_i %>
-        <%= f.submit "Actualizar Carro" %>
-        <%= link_to "Eliminar elemento", item, method: :delete, remote: :true %>
-          <h3> Subtotal: <%= item.total %></h3>
+        <%= f.submit "Actualizar pedido" %>
+
+        <%= link_to item, method: :delete, remote: true do %>
+          <i class="fas fa-trash fa-lg"></i>
+        <% end %>
+          <h3> Subtotal: $<%= item.total %></h3>
         <h3> Total: <%= current_cart.total_price %></h3>
       <% end %>
     <% end %>
