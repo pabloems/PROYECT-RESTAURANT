@@ -42,6 +42,9 @@ module PROYECTRestaurant
     # Rails.application.config.assets.configure do |env|
     #   env.export_concurrent = false
     # end
+
+    # borrar 
+    config.assets.initialize_on_precompile = false
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
