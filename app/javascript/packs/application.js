@@ -29,16 +29,3 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
-
-
-$(document).on('click', '#btn-review', function () {
-  $('#reviews-section').toggle();
-  $('#reviews-section-th').toggle();
-});
-
-$(document).on('click', '#btn-review-save', function () {
-  $('#new-review').toggle();
-  $('#new-review-save').toggle();
-});
-
-
