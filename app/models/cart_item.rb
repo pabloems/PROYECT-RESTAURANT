@@ -5,6 +5,10 @@ class CartItem < ApplicationRecord
   before_save :set_item_price
   before_save :set_total
 
+  # Solo se podrá agregar al carro más de 1
+  validates :quantity, numericality: {greater_than_or_equal_to: 1}
+
+
   def item_price
     # if there is a record
     if persisted?
