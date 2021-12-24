@@ -2,23 +2,45 @@
   <% if product.active %>
       
 
-      <div class="m-1 d-flex flex-column">
+      <div class="d-flex flex-column">
 
         <div class="product-card ">
+        <% if product.image.attached? %>
+          <div class="image-content">
+            <%= cl_image_tag product.image.key, class:" product-image" %>
+          </div>
+        <% else %>
+          <div class="image-content">
+              <%# Foto cargada en product_card.scss %>
+              <div class="background-image"></div>
+          </div>
+        <% end %>
       <%# Manejo de display-products %>
-          <p><%= product.name %></p>
-          <p><%= product.description %></p>
-          <p>$<%= product.price%></p>
+        <div class="m-3">
+          <div class="d-flex justify-content-between">
+            <p><strong><%= product.name %></strong></p>
+            <p><strong>$<%= product.price%></strong></p>
+          </div>
+          <p class= 'text-justify'><%= product.description %></p>
 
             <%# Form add-cart %>
-          <div class=" align-items-center ">
+          <div class=" d-flex flex-column align-items-center">
             <%= simple_form_for(@cart_item, remote: true ) do |f| %>
               <%= f.hidden_field :product_id, value: product.id %>
-              <%= f.number_field :quantity, value: 0, min: 0 %>
-              <%= f.submit "Añadir a la orden" , class: "btn btn-primary"%>
+              <div class="d-flex flex-column form-product-card mx-2">
+                <div class="d-flex align-items-center">
+                  <%= f.button :button, "-",class: "signo-btn minus", onclick: "document.getElementById('#{product.id}').value = parseInt(document.getElementById('#{product.id}').value) - 1; return false " %>
+                  <%= f.number_field :quantity, value: 1, label: false, class: "quantity-product my-2 text-center", id: product.id %>
+                  <%= f.button :button, "+", class: "signo-btn plus", onclick: "document.getElementById('#{product.id}').value = parseInt(document.getElementById('#{product.id}').value) + 1; return false" %>
+                </div>  
+                <div class="d-flex justify-content-center mb-1">
+                  <%= f.submit "Añadir al pedido" , class: "btn btn-primary  button-product"%>
+                </div>
+              </div>
             <% end %>
           </div>
           
+        </div>
 
     <%# product-card %>
         </div>

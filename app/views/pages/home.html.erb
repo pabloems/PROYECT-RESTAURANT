@@ -8,13 +8,13 @@
         <%= link_to(category_path(category)) do %>
           <% if category.photo.attached? %>
 
-            <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= cl_image_path category.photo.key ,crop: :fill %>)">
-
+            <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))
+            , url(<%= cl_image_path category.photo.key ,crop: :fill %>)">
               <h3 class = 'category-name '><%= category.name %></h3>
             </div>
           <% else %>
             <div class="category-card category-img">
-              <h3 class = 'category-name '><%= category.name %></h3>
+              <h3 class = 'category-name'><%= category.name %></h3>
             </div>
 
           <% end %>
