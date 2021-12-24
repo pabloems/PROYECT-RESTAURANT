@@ -317,7 +317,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   cloudinary (~> 1.16.0)
-  concurrent-ruby (~> 1.1.5)
   devise
   dotenv-rails
   faker
@@ -335,11 +334,9 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   ransack
   redis (~> 4.0)
-  sass-rails (~> 6.0)
-  sassc (~> 2.0, >= 2.0.1)
+  sass-rails (>= 6)
   simple_form
   spring
-  sprockets (~> 3.7.2)
   stripe
   stripe_event
   turbolinks (~> 5)
