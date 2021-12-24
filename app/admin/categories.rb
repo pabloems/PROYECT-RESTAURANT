@@ -24,7 +24,7 @@ ActiveAdmin.register Category  do
       if category.photo.attached?
         image_tag category.photo, class: 'image_product', size: '75x75'
       else
-        image_tag 'logo.png', class: 'image_product', size: '75x75'
+        image_tag 'imagen-no-disponible.jpg', class: 'image_product', size: '75x75'
       end
     end
     actions
@@ -38,14 +38,6 @@ ActiveAdmin.register Category  do
   controller do
 
     before_action :set_category, only: [:show]
-
-    # def new
-    #   @category = Category.new
-    # end
-
-    # def create
-    #   @category = Category.new(category_params)
-    # end
 
     def show
       @products = @category.products

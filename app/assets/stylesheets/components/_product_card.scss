@@ -1,10 +1,11 @@
+// Display cards
+// Media Query formato responsive
 .cards-product-display{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
-// Media Query formato responsive
 @media(max-width: 992px) {
   .cards-product-display{
     grid-template-columns: 1fr 1fr;
@@ -16,10 +17,61 @@
     grid-template-columns: 1fr;
   }
 }
+// -------------------------
 
 .product-card{
-  width: 200px;
-  height: 200px;
-  background-color: rgb(253, 0, 0);
-  border: solid 1px;
+  width: 300px;
+  height: 400px;
+  background-color: rgb(136, 32, 32);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 5px;
+  overflow-y: auto;
+  position: relative;
+  .button-card-product {
+    width: 70%;
+  }
+}
+
+.image-content{
+  height: 175px;
+  width: 100%;
+}
+
+// If image is present
+.product-image{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+
+// If image is blank
+.background-image{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image:  url("image_product_card.jfif");
+}
+
+// .button-product{
+//   width: 90%;
+// }
+
+.form-product-card{
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  
+}
+
+// Quitar barra incremento lateral
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
