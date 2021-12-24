@@ -42,9 +42,7 @@ module PROYECTRestaurant
     # Rails.application.config.assets.configure do |env|
     #   env.export_concurrent = false
     # end
-
-    # borrar 
-    config.assets.initialize_on_precompile = false
+      config.assets.precompile += %w( active_admin.css active_admin.js)
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
