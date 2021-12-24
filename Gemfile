@@ -34,6 +34,14 @@ group :development, :test do  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :assets do
+
+# Use SCSS for stylesheets
+# gem 'sass-rails', '~> 6.0'
+
+gem 'sass-rails', '>= 6'
+end
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
@@ -86,7 +94,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   #  Uploads images
   gem 'cloudinary', '~> 1.16.0'
 
-# Use SCSS for stylesheets
-# gem 'sass-rails', '~> 6.0'
-
-gem 'sass-rails', '>= 6'
