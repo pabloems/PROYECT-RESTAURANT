@@ -9,10 +9,6 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-# gem 'sass-rails', '~> 6.0'
-
-gem 'sass-rails', '>= 6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
@@ -89,3 +85,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   #  Uploads images
   gem 'cloudinary', '~> 1.16.0'
+
+# Use SCSS for stylesheets
+# gem 'sass-rails', '~> 6.0'
+
+gem 'sass-rails', '>= 6'
