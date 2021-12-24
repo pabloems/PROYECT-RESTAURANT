@@ -39,9 +39,9 @@ module PROYECTRestaurant
 
     # # Soluciona problemas para compilar scss
     # # false
-    Rails.application.config.assets.configure do |env|
-      env.export_concurrent = false
-    end
+    # Rails.application.config.assets.configure do |env|
+    #   env.export_concurrent = false
+    # end
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
