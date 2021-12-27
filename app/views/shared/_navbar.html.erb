@@ -5,12 +5,12 @@
   </button>
 
   <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto align-items-center ">
+    <ul class="navbar-nav mr-auto d-flex ">
       <% if user_signed_in? %>
 
-      <div class="d-flex align-items-center  ">
+      <div class="d-flex  ">
 
-      <li class="nav-item dropdown active d-flex mx-4 ">
+      <li class="nav-item dropdown active d-flex mr-auto p-2">
               <%= link_to "#", class: "no-decoration ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
                 <div class="d-flex align-items-center user-icon">
                   <div class="mr-2">
@@ -24,18 +24,18 @@
               <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
-          <div class="dropdown-divider"></div>
           <a class="" >
             <% if current_user.admin? %>
               <%= link_to  "Administración", admin_dashboard_path, class: "dropdown-item" %>
             <% end %>
+          <div class="dropdown-divider"></div>
              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </a>
         </div>
 
       </li>
 
-        <li class="nav-item active d-flex mx-4 ">
+        <li class="nav-item active d-flex p-2">
        <%= link_to '/cart' do %>
             <div class="d-flex align-items-center user-icon ">
               <div class="mr-2">

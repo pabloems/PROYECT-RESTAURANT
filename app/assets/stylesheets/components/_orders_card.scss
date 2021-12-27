@@ -1,9 +1,19 @@
-.orders-card{
-  width: 750px;
-  border-radius: 5px;
-  border: 1px solid #D5D5D5;
-}
 
+.orders-card{
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  width: 80vw;
+  background-color: #810000;
+}
 
 .order-divider{
   border-bottom: 1px solid #E6E6E6;
@@ -17,9 +27,10 @@
 }
 
 .status-order{
-  background-color: #F5F5F5;
+  background-color: #000000;
   font-family: bold;
-  font-size: 1.2em;
-  font-weight: 300;
+  font-weight: 175px;
+  width: 100%;
+  height: 50px;
 }
 

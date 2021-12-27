@@ -1,6 +1,8 @@
 es:
   activerecord:
     models:
+      category:
+        name: "Nombre"
       comment:
         one: "Comentario"
         other: "Comentarios"

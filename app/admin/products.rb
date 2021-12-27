@@ -1,8 +1,8 @@
-ActiveAdmin.register Product  do
+ActiveAdmin.register Product do
 # , as: "Productos"
   # Permite crear la páginación
   config.per_page = 10
-
+  menu :label => "Productos"
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id
 
@@ -49,18 +49,18 @@ ActiveAdmin.register Product  do
     # Index de products
   index do
     selectable_column
-    column :name
-    column :description
-    number_column :price , as: :currency,precision: 0
+    column "Nombre", :name
+    column "Descripción", :description
+    number_column "Precio",:price , as: :currency,precision: 0
     column 'Categoría' do |product|
       product.categories.map{ |bg| bg.name}
     end
-    toggle_bool_column :active
+    toggle_bool_column "Activo", :active
     column "Imagen" do |product|
       if product.image.attached?
-        image_tag product.image, size:'60x60'
+        image_tag product.image, size: '75x75'
       else
-        image_tag 'logo.png', size:'60x60'
+        image_tag 'imagen-no-disponible.jpg', size: '75x75'
       end
     end
     actions

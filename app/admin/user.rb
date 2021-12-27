@@ -1,5 +1,5 @@
-ActiveAdmin.register User do
-# , as: "Colaboradores"
+ActiveAdmin.register User, as: "Colaboradores" do
+
   config.comments = false
   permit_params :admin, :name, :last_name, :phone, :email, :store_id, :password, :password_confirmation
 
@@ -29,7 +29,7 @@ ActiveAdmin.register User do
 
     # Cambios en el formulario
   form do |f|
-    f.inputs "Identity" do
+    f.inputs "Crear Colaborador" do
 
       f.input :name
       f.input :last_name
@@ -50,10 +50,21 @@ ActiveAdmin.register User do
       row 'Usuario' do |u|
         u.full_name
       end
-      row :email
-      row :phone
-      row :admin
-      row :created_at
+      row 'Email'do |u|
+        u.email
+      end
+
+      row 'Teléfono'do |u|
+        u.phone
+      end
+
+      row 'Administrador'do |u|
+        u.admin
+      end
+
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
     end
   end
 end
