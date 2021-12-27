@@ -1,5 +1,5 @@
-ActiveAdmin.register Category  do
-# , as: "Categorias"
+ActiveAdmin.register Category do
+
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id
 
@@ -37,6 +37,20 @@ ActiveAdmin.register Category  do
       end
     end
     actions
+  end
+
+  
+  show do
+    attributes_table do
+
+      row 'Nombre' do |u|
+        u.name
+      end
+
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
+    end
   end
 
 

@@ -41,9 +41,18 @@ ActiveAdmin.register Order, as: "Ordenes"  do
       row "Usuario" do |u|
         u.user.name + " " + u.user.last_name
       end
-      row :status
-      row :cart_id
-      row :created_at
+
+      row 'Estado'do |u|
+        u.status
+      end
+
+      row 'Número de Pedido'do |u|
+        u.cart_id
+      end
+
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
     end
   end
 end

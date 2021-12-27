@@ -50,10 +50,21 @@ ActiveAdmin.register User, as: "Colaboradores" do
       row 'Usuario' do |u|
         u.full_name
       end
-      row :email
-      row :phone
-      row :admin
-      row :created_at
+      row 'Email'do |u|
+        u.email
+      end
+
+      row 'Teléfono'do |u|
+        u.phone
+      end
+
+      row 'Administrador'do |u|
+        u.admin
+      end
+
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
     end
   end
 end

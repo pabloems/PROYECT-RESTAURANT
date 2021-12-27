@@ -26,7 +26,7 @@
           <a class="dropdown-item" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
           <a class="" >
             <% if current_user.admin? %>
-              <%= link_to  "Administración", admin_inicio_path, class: "dropdown-item" %>
+              <%= link_to  "Administración", admin_dashboard_path, class: "dropdown-item" %>
             <% end %>
           <div class="dropdown-divider"></div>
              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

@@ -50,9 +50,15 @@ ActiveAdmin.register Cart , as: "Pedidos" do
       row "Colaborador" do |u|
         u.user.name + " " + u.user.last_name
       end
-      number_row :total_price, as: :currency, precision: 0
-      row :active
-      row :created_at
+      # number_row :total_price, as: :currency, precision: 0
+
+      number_row 'Total del Pedido'do |u|
+        u.total_price
+      end
+
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
     end
 
   end
