@@ -1,9 +1,11 @@
-ActiveAdmin.register Order  do
-# , as: "Ordenes"
+ActiveAdmin.register Order, as: "Ordenes"  do
+
   actions :index, :show
 
   permit_params :status, :payment_id, :paid, :cart_id,:user_id,
   users_attributes: [ :name, :last_name ]
+
+  scope :order_paid
 
   # Permite crear la páginación
   config.per_page = 10
@@ -15,12 +17,13 @@ ActiveAdmin.register Order  do
 
   index do
     selectable_column
-    column 'Usuario' do |u|
+    column :id
+    column 'Colaborador' do |u|
        u.user.name + ' ' + u.user.last_name
     end
-    column :cart_id
-    column :paid
-    column :status
+    column "Pedido", :cart_id
+    column "Estado", :status
+    column "Pagado", :paid
     actions
   end
 

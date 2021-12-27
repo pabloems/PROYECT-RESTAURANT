@@ -4,6 +4,7 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :user, allow_destroy: false
 
+  scope :order_paid,-> {where(status: 'Pagado')}
   # before_create :set_status
 
   # STATUSES = {

@@ -1,5 +1,5 @@
-ActiveAdmin.register Cart do
-# , as: "Carritos"  
+ActiveAdmin.register Cart , as: "Pedidos" do
+ 
   permit_params :total_price, :active, :user_id,
   cart_items_attributes: [:product_id, :item_price, :total, :quantity],
   users_attributes: [ :name, :last_name ]
