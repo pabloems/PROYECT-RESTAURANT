@@ -1,11 +1,18 @@
 <div class="container">
-  <div class="row py-4">
+      <h1 class= 'title-style'>Confirmar Pago</h1>
+  <div class="row ">
 <%#     <div class="col-md-3"><%= image_tag @order.teddy.photo_url, width: '100%' %>
-    <div class="col">
-      <h1>Confirmar Pago</h1>
-      <p>Atendido por: <strong><%= @order.user.full_name %></strong> Por <strong >$ <%= @order.cart.total_price %></strong></p>
+    <div class="col-12 col-lg-8">
+        <div class="mt-5">
+          <%= render "show", collection: @order.cart %>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <p><strong>Atendido por: </strong><%= @order.user.full_name %></p>
+      <p><strong >Total de la orden:</strong> $ <%= @order.cart.total_price %></p>
+      <p><strong >Estado del pago: </strong><span class="badge badge-primary"><%= @order.status %></span></p>
       <p><strong>Fecha de Transacción</strong>: <%=  @order.created_at.strftime("%d de %b del %Y")  %></p>
-      <button id="pay" class="btn btn-primary">Pagar</button>
+      <button id="pay" class="btn btn-success">Pagar</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

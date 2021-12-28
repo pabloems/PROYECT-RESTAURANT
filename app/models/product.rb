@@ -29,5 +29,6 @@ class Product < ApplicationRecord
     update(stripe_product_id: product.id , stripe_pricing_id: pricing.id)
   end
 
+
 end
 

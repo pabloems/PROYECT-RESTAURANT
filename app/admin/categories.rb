@@ -7,20 +7,15 @@ ActiveAdmin.register Category do
   # Permite crear la páginación
   config.per_page = 10
 
+  # Nombre para desplegarlo en menú
+  menu :label => "Categorías"
+
    permit_params do
     permitted = [:name, :photo]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
 
-  # show do
-  #    attributes_table do
-  #     row "Nombre" do
-  #       :name
-  #     end
-  #     row :created_at, "Fecha de Creación"
-  #    end
-  # end
 
   # Filtros personalizados
   filter :name

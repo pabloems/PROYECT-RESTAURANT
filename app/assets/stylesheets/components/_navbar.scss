@@ -1,11 +1,4 @@
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
 .empty-orders{
   display: flex;
@@ -33,27 +26,20 @@ p.cart-navbar{
 }
 
 
-// .price,
-// name-navbar{
-//   font-size: 0.6em;
-// }
-
-
 .over-title{
   color: #a3a3a3
 }
 
-
-// .user-name,
-// .dropdown-title {
-//   font-size: 0.85em;
-//   font-weight: 700;
-//   color: #212121;
-// }
+.search_form{
+  align-items: center;
+}
 
 
-//   .user-name,
-//   .price,
-//   .dropdown-title {
-//     font-size: 0.7em;
-//   }
+.search-placeholder{
+  border-radius: 5px;
+}
+
+.search-button{
+  outline:none;
+}
+

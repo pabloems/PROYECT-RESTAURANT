@@ -7,7 +7,7 @@
 
     <% @cart_items.each do |item| %>
     <h3><%= item.product.name %></h3>
-    <h3><%= item.product.price %></h3>
+    <h3>$<%= item.product.price %></h3>
 
     <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
         <%= f.hidden_field :product_id, value: item.product_id %>
@@ -18,7 +18,7 @@
           <i class="fas fa-trash fa-lg"></i>
         <% end %>
           <h3> Subtotal: $<%= item.total %></h3>
-        <h3> Total: <%= current_cart.total_price %></h3>
+        <h3> Total: $<%= current_cart.total_price %></h3>
       <% end %>
     <% end %>
   </div>
