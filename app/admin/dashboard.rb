@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
     # end
 
 
-  panel "Pedidos Recientes(10)" do
+  panel "Ordenes Recientes(10)" do
     table_for Order.order(created_at: :desc).limit(10) do
       column :id
       column 'Colaborador' do |u|
@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
       column "Pagado", :paid
       column "Fecha", :created_at
     end
-    strong {link_to "Ver Todos los Pedidos",  admin_pedidos_path}
+    strong {link_to "Ver Todas las Ordenes",  admin_pedidos_path}
   end
 
   end # content

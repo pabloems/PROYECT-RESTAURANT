@@ -1,0 +1,36 @@
+
+// Contiene toda la información
+// de confirmación de pago (cliente)
+.details-order-client{
+  box-shadow: 0 0 15px #00000033;
+  border-radius: 5px;
+  margin: 5px;
+  // overflow-y: auto;
+  // position: relative;
+}
+
+display-image-payments{
+  width: 75px;
+  height: 50px;
+}
+
+
+.image-client{
+  width: 75px;
+  height: 50px;
+  border-radius: 5px;
+  background-size: cover
+}
+
+.default-image-client{
+  width: 75px;
+  height: 50px;
+  background-image:  url("image_product_card.jfif");
+  background-size: cover;
+  border-radius: 5px;
+}
+
+// .button-pay{
+//   &:hover::after{
+//   width: 100%;
+// }}
