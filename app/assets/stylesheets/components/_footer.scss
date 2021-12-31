@@ -1,18 +1,21 @@
 .footer {
-  background: #F4F4F4;
+  background:  #BA171B;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  // color: rgb(0, 0, 0);
 }
 .footer-links {
   display: flex;
   align-items: center;
+  color: #000000;
 }
+
 .footer-links a {
-  color: black;
+    color: #000000;
+  // color: #108D59;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -20,4 +23,8 @@
 }
 .footer-links a:hover {
   opacity: 1;
+}
+
+.style-color{
+  color: black;
 }
