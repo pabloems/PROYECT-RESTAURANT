@@ -2,11 +2,11 @@
 // Contiene toda la información
 // de confirmación de pago (cliente)
 .details-order-client{
-  box-shadow: 0 0 15px #00000033;
+  // box-shadow: 0 0 15px #00000033;
   border-radius: 5px;
   margin: 5px;
-  // overflow-y: auto;
-  // position: relative;
+  overflow-y: auto;
+  position: relative;
 }
 
 display-image-payments{
@@ -30,7 +30,13 @@ display-image-payments{
   border-radius: 5px;
 }
 
-// .button-pay{
-//   &:hover::after{
-//   width: 100%;
-// }}
+
+
+// Media query para mostrar
+// estado del pago
+// show-payments
+@media(max-width: 768px) {
+  .information-contain {
+    width: 85vw;
+  }
+}

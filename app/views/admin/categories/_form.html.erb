@@ -1,8 +1,8 @@
 <%= semantic_form_for [:admin, @category], builder: ActiveAdmin::FormBuilder do |f| %>
 <%= f.inputs "Categorías"  do %>
 
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :name, label: "Nombre" %>
+  <%= f.input :photo, as: :file, label: "Foto" %>
   <% end %>
   <%= f.actions %>
 <% end %>

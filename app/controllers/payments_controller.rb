@@ -17,7 +17,6 @@ class PaymentsController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = current_user.orders
-    
   end
 
 end
