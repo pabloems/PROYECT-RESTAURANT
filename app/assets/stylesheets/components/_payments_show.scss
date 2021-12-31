@@ -35,8 +35,9 @@ display-image-payments{
 // Media query para mostrar
 // estado del pago
 // show-payments
-@media(max-width: 768px) {
+@media(max-width: 320px) {
   .information-contain {
     width: 85vw;
   }
 }
+

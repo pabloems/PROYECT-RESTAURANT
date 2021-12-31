@@ -70,11 +70,25 @@ ActiveAdmin.register Product do
     # Show de product
     show do
       attributes_table do
-        row :name
-        row :description
-        number_row :price, precision: 0, as: :currency
-        row :active
-        row :created_at
+      row 'Nombre' do |u|
+        u.name
+      end
+
+
+      row 'Descripción'do |u|
+        u.description
+      end
+        number_row "Precio", :price, precision: 0, as: :currency
+
+      row 'Activo'do |u|
+        u.active
+      end
+        
+      row 'Fecha de Creación'do |u|
+        u.created_at
+      end
+
+
       end
     end
 

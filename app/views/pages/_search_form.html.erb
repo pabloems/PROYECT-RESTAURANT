@@ -1,10 +1,6 @@
 <%= search_form_for @q do |f| %>
   <%# <%= f.label :name_cont %> 
   <%= f.search_field :name_cont, placeholder: "Buscar producto...", class: "search-placeholder"%>
-  <%= button_tag type: 'submit', class: "search-button" do %>
-    <i class="fas fa-search  no-decoration" ></i>
-  <% end %>
-
-  <%# <%= f.submit "Buscar" , class: "btn btn-primary"%>
+  <%= f.submit "Buscar" , class: "btn btn-success "%>
 
 <% end %>
