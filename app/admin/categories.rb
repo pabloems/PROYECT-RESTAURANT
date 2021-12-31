@@ -24,13 +24,13 @@ ActiveAdmin.register Category do
     selectable_column
     column "Nombre", :name
     column "Fecha de Creación", :created_at
-    column "Imagen" do |category|
-      if category.photo.attached?
-        image_tag category.photo, class: 'image_product', size: '75x75'
-      else
-        image_tag 'imagen-no-disponible.jpg', class: 'image_product', size: '75x75'
-      end
-    end
+    # column "Imagen" do |category|
+    #   if category.photo.attached?
+    #     cl_image_path category.photo, class: 'image_product', size: '75x75'
+    #   else
+    #     image_tag 'imagen-no-disponible.jpg', class: 'image_product', size: '75x75'
+    #   end
+    # end
     actions
   end
 
