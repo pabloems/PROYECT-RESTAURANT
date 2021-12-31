@@ -2,6 +2,7 @@ ActiveAdmin.register Product do
 # , as: "Productos"
   # Permite crear la páginación
   config.per_page = 10
+  # Nombre para desplegarlo en menú
   menu :label => "Productos"
   # Permite contenerlo en el menú adminstración
   # menu parent: :some_menu_id

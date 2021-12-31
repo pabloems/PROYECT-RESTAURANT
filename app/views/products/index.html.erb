@@ -1,13 +1,19 @@
 <div class="container">
 
+ <div class="d-flex flex-column">
 
-  <div class="justify-content-center">
-    <%= render "product_card" %>
-  </div>
+    <div class="align-items-center mx-auto mt-3">
+      <div class=" cards-product-display ">
+        <%= render "products/product_card" %>
+      </div>
 
+      <%# Muestra paginación solo si existe más de 1 pág %>
+      <div class="d-flex justify-content-center m-3">
+        <%== pagy_bootstrap_nav(@pagy)  if @pagy.pages > 1 %>
+      </div>
 
-  <%# Muestra paginación solo si existe más de 1 pág %>
-  <div class="d-flex justify-content-center m-3">
-    <%== pagy_bootstrap_nav(@pagy)  if @pagy.pages > 1 %>
+    <%# cards-product %>
+    </div>
+
   </div>
 </div>

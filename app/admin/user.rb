@@ -31,14 +31,14 @@ ActiveAdmin.register User, as: "Colaboradores" do
   form do |f|
     f.inputs "Crear Colaborador" do
 
-      f.input :name
-      f.input :last_name
-      f.input :email
-      f.input :phone
-      f.input :password
-      f.input :password_confirmation
-      f.input :store
-      f.input :admin
+      f.input :name, label: "Nombre"
+      f.input :last_name, label: "Apellido"
+      f.input :email, label: "Email"
+      f.input :phone, label: "Teléfono"
+      f.input :password, label: "Contraseña"
+      f.input :password_confirmation, label: "Confirmar Contraseña"
+      f.input :store, label: "Tienda"
+      f.input :admin, label: "Administrador"
     end
 
     f.actions

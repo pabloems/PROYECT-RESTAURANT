@@ -1,0 +1,48 @@
+<div class="details-order-client ">
+  <%# <h4 class="m-2">Productos de su Pedido:</h4> %>
+
+
+  <table class="table ">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody >
+  <% @order.cart.cart_items.each do |item| %>
+    <tr class="table table-light">
+      <td>
+        <div>
+          <% if item.product.image.attached? %>
+            <div class="display-image-payments">
+              <%= cl_image_tag item.product.image.key, class:"image-client" %>
+            </div>
+            <% else %>
+            <div class="display-image-payments">
+                    <%# Foto cargada en product_card.scss %>
+              <div class="default-image-client"></div>
+            </div>
+          <% end %>
+        </div>
+      </td>
+      <td><p class= "mt-2"><%= item.product.name %></p></td>
+      <td><p class= "mt-2">$<%= item.product.price %></p></td>
+      <td><p class= "text-center mt-2"><%= item.quantity%></p></td>
+      <td ><p class= "mt-2">$<%= item.total %></p></td>
+    </tr>
+
+  <% end %>
+    <tr>
+      <%# <th scope="row">3</th> %>
+      <td colspan="4" ><p><strong>Total de su pedido</strong></p></td>
+      <td ><p><strong>$<%= @order.cart.total_price %></strong></p></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
