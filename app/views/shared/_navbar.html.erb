@@ -23,7 +23,7 @@
                 </div>
               <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
+          <a class="" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
           <a class="" >
             <% if current_user.admin? %>
               <%= link_to  "Administración", admin_dashboard_path, class: "dropdown-item" %>

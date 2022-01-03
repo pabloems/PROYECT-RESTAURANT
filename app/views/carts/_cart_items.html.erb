@@ -1,46 +1,96 @@
-<% if @cart_items.size > 0 %>
-<div class="container text-center">
-  <h2 class="mt-3">Pedido</h2>
-
-  <div class="cart-items d-grid">
-
-
-    <% @cart_items.each do |item| %>
-    <h3><%= item.product.name %></h3>
-    <h3>$<%= item.product.price %></h3>
-
-    <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
-        <%= f.hidden_field :product_id, value: item.product_id %>
-        <%= f.number_field :quantity, value: item.quantity.to_i %>
-        <%= f.submit "Actualizar pedido" %>
-
-        <%= link_to item, method: :delete, remote: true do %>
-          <i class="fas fa-trash fa-lg"></i>
-        <% end %>
-          <h3> Subtotal: $<%= item.total %></h3>
-        <h3> Total: $<%= current_cart.total_price %></h3>
-      <% end %>
-    <% end %>
-  </div>
-
-  <%= form_tag orders_path do %>
-    <%= hidden_field_tag 'cart_id', current_cart %>
-    <%= submit_tag 'Pagar con tarjeta crédito', class: 'btn btn-success' %>
-  <% end %>
-
-    <div class="method-pay d-flex m-4">
-      <%= link_to  "Atrás", root_path, class: "btn btn-warning" %>
-      <%# <%= link_to "Pagar con tarjeta crédito", order_create_path(current_cart), method: :post , remote: true, class: "btn btn-primary" %> 
-    <%# <%= link_to  "Pagar",  cart_checkout_index_path(current_cart), method: :post %> 
-    </div>
-</div>
-<% else %>
 <div class="container">
-  <div class="title-style mt-5">
-  <h1>No tienes productos para realizar un pedido</h1>
-  <%= link_to  "Atrás", root_path, class: "btn btn-warning mt-3" %>
-  </div>
+
+  <% if @cart_items.size > 0 %>
+  <h3 class= 'title-style'>Detalle del Pedido</h3>
+  <div class="details-order-client ">
+    <%# <h4 class="m-2">Productos de su Pedido:</h4> %>
+
+
+    <table class="table ">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody >
+    <% @cart_items.each do |item| %>
+      <tr class="table table-light">
+        <td>
+          <div></div>
+            <% if item.product.image.attached? %>
+              <div class="display-image-payments">
+                <%= cl_image_tag item.product.image.key, class:"image-client" %>
+              </div>
+              <% else %>
+              <div class="display-image-payments">
+                      <%# Foto cargada en product_card.scss %>
+                <div class="default-image-client"></div>
+              </div>
+            <% end %>
+          </div>
+        </td>
+        <td><p class= "mt-2"><%= item.product.name %></p></td>
+        <td><p class= "mt-2">$<%= item.product.price %></p></td>
+        
+
+        <td>
+
+        <p class= "text-center mt-2">
+          <%= item.quantity%> 
+        </p>
+
+
+        </td>
+        <td >
+        <div class="">
+          <p class= "mt-2">$<%= item.total %>
+            <%= link_to item, method: :delete, remote: true do %>
+            <i class="fas fa-trash "></i>
+          <% end %>
+          </p>
+        </td>
+
+        </div>
+      </tr>
+
+    <% end %>
+      <tr class="bg-light ">
+        <%# <th scope="row">3</th> %>
+        <td colspan="4" ><p><strong>Total del pedido</strong></p></td>
+        <td ><p><strong>$<%= current_cart.total_price %></strong></p></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
 </div>
 
-<% end %>
+  <div class="buttons-action d-flex ">
 
+      <div class="method-pay">
+        <%= link_to  "Atrás", root_path, class: "btn btn-warning mx-5" %>
+        <%# <%= link_to "Pagar con tarjeta crédito", order_create_path(current_cart), method: :post , remote: true, class: "btn btn-primary" %> 
+      <%# <%= link_to  "Pagar",  cart_checkout_index_path(current_cart), method: :post %> 
+      </div>
+
+
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'cart_id', current_cart %>
+      <%= submit_tag 'Pagar con tarjeta crédito', class: 'btn btn-primary' %>
+    <% end %>
+
+  </div>
+<% else %>
+  <div class="container">
+    <div class="title-style mt-5">
+    <h1>No tienes productos para realizar un pedido</h1>
+    <%= link_to  "Atrás", root_path, class: "btn btn-warning mt-3" %>
+    </div>
+  </div>
+
+  <% end %>
