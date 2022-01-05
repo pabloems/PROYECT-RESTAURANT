@@ -44,22 +44,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .empty-orders{
   display: flex;
   align-items: center;
@@ -90,17 +74,35 @@ p.cart-navbar{
   color: #a3a3a3
 }
 
-.search_form{
-  align-items: center;
-}
-
-
 .search-placeholder{
   border-radius: 5px;
-
+  background-color: #F5F5F5;
 }
 
 .search-button{
   outline:none;
 }
 
+
+.search_form{
+  align-items: center;
+}
+
+// Media query para agrandar navbar
+
+@media (max-width: 992px) {
+  .search-placeholder {
+    align-self: center;
+    width: 20vw;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .search-placeholder {
+    align-self: center;
+    width: 65vw;
+  }
+
+}

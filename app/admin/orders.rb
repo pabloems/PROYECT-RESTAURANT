@@ -6,13 +6,13 @@ ActiveAdmin.register Order, as: "Ordenes"  do
   users_attributes: [ :name, :last_name ]
 
   scope :order_paid
+  scope :order_pending
 
   # Permite crear la páginación
   config.per_page = 10
 
   # Filtros personalizados (addons-gem)
   filter :user
-  filter :paid
   filter :created_at
 
   index do

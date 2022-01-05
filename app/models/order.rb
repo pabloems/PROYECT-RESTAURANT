@@ -4,25 +4,7 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :user, allow_destroy: false
 
+
   scope :order_paid,-> {where(status: 'Pagado')}
-  # before_create :set_status
-
-  # STATUSES = {
-
-  # in_process:'En proceso',
-  # rejected: 'Rechazada',
-  # payed: 'Pagada',
-  # on_delivery: 'En tránsito',
-  # completed: 'Completada'
-  # }
-
-  
-  # private
-
-  # def set_status
-  #   self.status = STATUSES[:payed]
-  # end
-
-  
-
+  scope :order_pending, -> { where(status: 'Pendiente')}
 end
