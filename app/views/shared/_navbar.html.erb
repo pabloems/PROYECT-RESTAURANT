@@ -23,7 +23,7 @@
                 </div>
               <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
+          <a class="" ><%= link_to "Mis pedidos",orders_path , class: "dropdown-item" %></a>
           <a class="" >
             <% if current_user.admin? %>
               <%= link_to  "Administración", admin_dashboard_path, class: "dropdown-item" %>
@@ -53,13 +53,12 @@
       </div>
 
         <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Inicia Sesión", new_user_session_path, class: "nav-link " %>
         </li>
       <% end %>
     </ul>
 
-  <div class="search_form">
+  <div class="search_form mb-2">
     <%= render './pages/search_form.html.erb' %>
   </div>
 
