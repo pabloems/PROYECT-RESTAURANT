@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row py-4">
-    <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.status %></span></small></h1>
+    <div class="col-md-8">
+      <h1>Orden #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.status %></span></small></h1>
       <ul class="list-unstyled">
-        <li><strong><p>Atendido por: <strong><%= @order.user.full_name %></strong></p></li>
-        <li><strong> <p><strong>Fecha de Transacción</strong>: <%=  @order.created_at.strftime("%d de %b del %Y")  %></p></li>
-        <li><strong> Total <strong >$ <%= @order.cart.total_price %></strong></li>
+        <li><p>Atendido por: <strong><%= @order.user.full_name %></strong></p></li>
+        <li><p>Fecha de Transacción: <strong><%=  @order.created_at.strftime("%d de %b del %Y")  %></p></strong></li>
+        <li>Total <strong >$ <%= @order.cart.total_price %></strong></li>
         </li>
       </ul>
-      <p>Entrega estimada en <strong>30 minutos.</strong></p>
+      <p><strong>Entrega estimada en 30 minutos.</strong></p>
+    </div>
+    <div class="col-4">
+      <%= image_tag 'imagen-logo.png' , class: 'logo-style' %>
     </div>
   </div>
 </div>

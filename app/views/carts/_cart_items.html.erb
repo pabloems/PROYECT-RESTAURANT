@@ -1,15 +1,15 @@
 <div class="container">
 
   <% if @cart_items.size > 0 %>
-  <h3 class= 'title-style'>Detalle del Pedido</h3>
-  <div class="details-order-client ">
+  <h3 class= 'title-style mt-3'>Detalle del Pedido</h3>
+  <div class="details-order-client mt-3">
     <%# <h4 class="m-2">Productos de su Pedido:</h4> %>
 
 
     <table class="table ">
     <thead class="thead-light">
-      <tr>
-        <th scope="col">Imagen</th>
+      <tr >
+        <%# <th scope="col">Imagen</th> %>
         <th scope="col">Producto</th>
         <th scope="col">Precio</th>
         <th scope="col">Cantidad</th>
@@ -18,9 +18,9 @@
     </thead>
     <tbody >
     <% @cart_items.each do |item| %>
-      <tr class="table table-light">
-        <td>
-          <div></div>
+      <tr class="table table-light ">
+        <td class= 'd-flex mt-2 '>
+          <%# <div></div> %>
             <% if item.product.image.attached? %>
               <div class="display-image-payments">
                 <%= cl_image_tag item.product.image.key, class:"image-client" %>
@@ -31,23 +31,30 @@
                 <div class="default-image-client"></div>
               </div>
             <% end %>
-          </div>
+
+
+        <p class= "ml-2 mt-2 "><%= item.product.name %></p>
         </td>
-        <td><p class= "mt-2"><%= item.product.name %></p></td>
-        <td><p class= "mt-2">$<%= item.product.price %></p></td>
-        
+        <td><p class= "mt-3">$<%= item.product.price %></p></td>
+
 
         <td>
-
-        <p class= "text-center mt-2">
-          <%= item.quantity%> 
-        </p>
-
-
+          <%= simple_form_for item, url: cart_item_path(item.id), remote: true do |f| %>
+                <div class="d-flex align-items-center mt-2">
+                  <%= f.hidden_field :product_id, value: item.product.id %>
+                  <%= f.button :button, "-", class: "signo-btn minus", onclick: "if (document.getElementById('#{item.product.id}').value > 0) { document.getElementById('#{item.product.id}').value = parseInt(document.getElementById('#{item.product.id}').value) - 1 }; return false" %>
+                  <%= f.number_field :quantity, value: item.quantity.to_i, class: "text-center quantity-product", id: item.product.id %>
+                  <%= f.button :button, "+", class: "signo-btn plus", onclick: "document.getElementById('#{item.product.id}').value = parseInt(document.getElementById('#{item.product.id}').value) + 1; return false" %>
+                <%= button_tag type: 'submit', class: "btn", remote: true do %>
+                  <i class="fas fa-sync-alt"></i>
+                <% end %>
+                </div>
+          <% end %>
         </td>
+
         <td >
         <div class="">
-          <p class= "mt-2">$<%= item.total %>
+          <p class= "mt-3">$<%= item.total %>
             <%= link_to item, method: :delete, remote: true do %>
             <i class="fas fa-trash "></i>
           <% end %>
@@ -60,7 +67,7 @@
     <% end %>
       <tr class="bg-light ">
         <%# <th scope="row">3</th> %>
-        <td colspan="4" ><p><strong>Total del pedido</strong></p></td>
+        <td colspan="3" ><p><strong>Total del pedido</strong></p></td>
         <td ><p><strong>$<%= current_cart.total_price %></strong></p></td>
       </tr>
     </tbody>
@@ -70,18 +77,19 @@
 
 </div>
 
-  <div class="buttons-action d-flex ">
+  <div class="dropdown-divider"></div>
+
+  <div class="buttons-action d-flex m-3 justify-content-between">
 
       <div class="method-pay">
-        <%= link_to  "Atrás", root_path, class: "btn btn-warning mx-5" %>
+        <%= link_to  "Atrás", root_path, class: "btn btn-warning " %>
         <%# <%= link_to "Pagar con tarjeta crédito", order_create_path(current_cart), method: :post , remote: true, class: "btn btn-primary" %> 
       <%# <%= link_to  "Pagar",  cart_checkout_index_path(current_cart), method: :post %> 
       </div>
 
-
     <%= form_tag orders_path do %>
       <%= hidden_field_tag 'cart_id', current_cart %>
-      <%= submit_tag 'Pagar con tarjeta crédito', class: 'btn btn-primary' %>
+      <%= submit_tag 'Crear pedido', class: 'btn btn-primary' %>
     <% end %>
 
   </div>
