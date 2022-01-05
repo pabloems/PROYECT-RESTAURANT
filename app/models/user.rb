@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def create_store
     storeEncontrados = Store.first(1)
     if storeEncontrados.blank?
-      store = Store.new(name: 'Restaurant Fast Food', address: 'Av. Ecuador #214', phone: '422- 223134')
+      store = Store.new(name: 'Restaurant La Casona', address: 'Av. Ecuador #214', phone: '422- 223134')
       if store.save
         self.store_id = store.id
       else
