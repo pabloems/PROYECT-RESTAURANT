@@ -12,7 +12,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   overflow-y: auto;
   width: 80vw;
-  background-color: #BA171B;
+  background-color: $green;
 }
 
 .order-divider{
@@ -48,3 +48,7 @@
   height: 260px;
 }
 
+
+.fa-trash{
+  color: black;
+}
