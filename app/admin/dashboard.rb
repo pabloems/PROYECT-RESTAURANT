@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
       column "Pagado", :paid
       column "Fecha", :created_at
     end
-    strong {link_to "Ver Todas las Ordenes",  admin_pedidos_path}
+    strong {link_to "Ver Todas las Ordenes",  admin_ordenes_path}
   end
 
   end # content

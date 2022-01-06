@@ -1,6 +1,5 @@
 <% @products.each do |product| %>
   <% if product.active %>
-      
 
       <div class="d-flex flex-column">
 
@@ -30,7 +29,7 @@
               <div class="d-flex flex-column form-product-card mx-2">
                 <div class="d-flex align-items-center">
                   <%= f.button :button, "-",class: "signo-btn minus", onclick: "document.getElementById('#{product.id}').value = parseInt(document.getElementById('#{product.id}').value) - 1; return false " %>
-                  <%= f.number_field :quantity, value: 1, label: false, class: " my-2 text-center", id: product.id %>
+                  <%= f.number_field :quantity, value: 1, label: false, class: " my-2 text-center product-placeholder", id: product.id %>
                   <%= f.button :button, "+", class: "signo-btn plus", onclick: "document.getElementById('#{product.id}').value = parseInt(document.getElementById('#{product.id}').value) + 1; return false" %>
                 </div>  
                 <div class="d-flex justify-content-center mb-1">

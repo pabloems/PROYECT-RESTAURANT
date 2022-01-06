@@ -1,9 +1,9 @@
 
 <div class= "container" >
 
-<h1 class ='text-center title-style '>Categorías</h1>
+<%# <h1 class ='text-center title-style '>Categorías</h1> %>
   <div class="d-flex flex-column">
-    <div class="cards-category align-items-center mt-3 mb-2">
+    <div class="cards-category align-items-center my-5">
       <% @categories.each do |category| %>
         <%= link_to(category_path(category)) do %>
           <% if category.photo.attached? %>
