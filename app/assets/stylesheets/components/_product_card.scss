@@ -22,7 +22,7 @@
 .product-card{
   width: 300px;
   height: 400px;
-  background-color: #BA171B;
+  background-color: $green;
   // background-color: rgb(136, 32, 32);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
@@ -57,10 +57,6 @@
   background-image:  url("image_product_card.jfif");
 }
 
-// .button-product{
-//   width: 90%;
-// }
-
 .form-product-card{
   position: absolute;
   bottom: auto;
@@ -70,6 +66,7 @@
 }
 
 // Quitar barra incremento lateral
+// en placeholder quantity
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
