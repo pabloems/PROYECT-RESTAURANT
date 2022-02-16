@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   # Evento para manejar el estado de la orden
   mount StripeEvent::Engine, at: '/stripe-webhooks'
-  # post "order/create", to: "checkout#create"
+
 
 
 end
